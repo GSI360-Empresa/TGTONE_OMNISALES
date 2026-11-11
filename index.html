@@ -219,7 +219,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap">
     <div>
       <h1>¿Sigues anotando todo a mano?</h1>
-      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, emites boletas y facturas electrónicas SII, controlas tu stock, cuadras tu caja y conoces tus márgenes. Te lo dejamos funcionando en tu local y te acompañamos paso a paso.</p>
+      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, emites boletas y facturas electrónicas SII, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Te lo dejamos funcionando en tu local y te acompañamos paso a paso.</p>
       <div class="cta-row">
         <a class="btn" href="#contacto">Agenda tu demo gratis</a>
         <a class="btn ghost" id="wa-hero" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
@@ -600,10 +600,21 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
             <option value="Emitir boletas/facturas SII y cuadrar caja">Emitir boletas/facturas SII y cuadrar caja</option>
             <option value="Control de inventario y reposición de stock">Control de inventario y reposición de stock</option>
             <option value="Conocer márgenes reales y ganancias por producto">Conocer márgenes reales y ganancias por producto</option>
-            <option value="Postular a Fondos Sercotec">Postular a Fondos Sercotec (Digitaliza tu Almacén)</option>
+            <option value="Postular a Sercotec (Software + Asesoría)">Postular a Sercotec con asesoría y financiamiento (Digitaliza tu Almacén)</option>
             <option value="Equipar el mesón completo">Equipar el mesón completo (PC + Lector + Impresora)</option>
           </select>
         </div>
+      </div>
+
+      <!-- NUEVO CAMPO DE SELECCIÓN PARA ASESORÍA SERCOTEC -->
+      <div class="form-group">
+        <label for="servicio_extra">¿Te interesa el servicio de asesoría y postulación Sercotec? *</label>
+        <select id="servicio_extra" name="servicio_extra" required>
+          <option value="">Elige una opción</option>
+          <option value="Sí, quiero asesoría y postulación Sercotec">Sí, necesito asesoría y gestión para postular a Sercotec</option>
+          <option value="No, solo contratación de sistema y puesta en marcha">No, solo me interesa contratar el software y la puesta en marcha</option>
+          <option value="Quiero evaluarlo en la demo">Quiero evaluarlo en la demo</option>
+        </select>
       </div>
 
       <div class="form-group">
@@ -690,6 +701,7 @@ form.addEventListener('submit', function(e){
     nombre_negocio: form.nombre_negocio.value.trim(),
     negocio: form.negocio.value,
     desafio: form.desafio.value,
+    servicio_extra: form.servicio_extra.value,
     equipos: form.equipos.value,
     mensaje: form.mensaje.value.trim(),
     origen: origen,
@@ -705,6 +717,7 @@ form.addEventListener('submit', function(e){
     'Comuna: ' + d.comuna,
     'Negocio: ' + negocioTxt,
     'Objetivo: ' + d.desafio,
+    'Interés Sercotec: ' + d.servicio_extra,
     'Equipos: ' + d.equipos,
     'Mensaje: ' + (d.mensaje || 'Sin comentarios')
   ].join('\n');
