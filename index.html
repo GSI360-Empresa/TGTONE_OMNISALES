@@ -92,17 +92,19 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:20em}
 .svc strong{display:block;font:700 19px 'Bricolage Grotesque',sans-serif;margin-bottom:6px}
 .svc span{color:#cfe3d7;font-size:15.5px}
 
-/* Secciones de Implementación GSI360 */
-.setup-box{margin-top:24px;background:#fff;border:2px solid var(--green);border-radius:20px;padding:32px;box-shadow:0 10px 30px rgba(23,128,61,0.06)}
-.setup-box h3{font-size:24px;margin-bottom:8px;color:var(--deep)}
-.setup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px}
-.setup-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column}
-.setup-card h4{font:700 18px 'Bricolage Grotesque',sans-serif;color:var(--green);margin-bottom:4px}
-.setup-price{font:800 22px 'Bricolage Grotesque',sans-serif;color:var(--ink);margin-bottom:12px}
-.setup-card ul{list-style:none;font-size:14.5px;flex:1;margin-bottom:16px}
-.setup-card li{padding:3px 0 3px 18px;position:relative}
+/* Estilos de Instalación / Puesta en Marcha GSI360 (Primero) */
+.setup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px;margin-bottom:48px}
+.setup-card{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 24px rgba(13,58,42,.04)}
+.setup-card.pop{border:2px solid var(--amber);background:#fdfcf7}
+.setup-card h4{font:700 20px 'Bricolage Grotesque',sans-serif;color:var(--deep);margin-bottom:4px}
+.setup-badge{position:absolute;top:0;right:20px;background:var(--amber);color:#4a3500;font:700 11px/1 'Instrument Sans',sans-serif;padding:5px 10px;border-radius:0 0 6px 6px;text-transform:uppercase}
+.setup-price{font:800 28px/1 'Bricolage Grotesque',sans-serif;color:var(--green);margin:10px 0 16px}
+.setup-price small{font:500 14px 'Instrument Sans',sans-serif;color:var(--mut)}
+.setup-card ul{list-style:none;font-size:15px;flex:1;margin-bottom:20px}
+.setup-card li{padding:4px 0 4px 20px;position:relative}
 .setup-card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
 
+/* Estilos de Planes de Suscripción de Software (Segundo) */
 .plans{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
 .plan{padding:26px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;position:relative}
 .plan:last-child{border-right:0}
@@ -120,7 +122,7 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:20em}
 .plan li.lim::before{content:""}
 .fine{margin-top:20px;font-size:14.5px;color:var(--mut);text-align:center}
 
-.sercotec-box{margin-top:28px;background:linear-gradient(135deg,#17803d,#0d3a2a);color:#fff;border-radius:16px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.sercotec-box{margin-top:36px;background:linear-gradient(135deg,#17803d,#0d3a2a);color:#fff;border-radius:16px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .sercotec-box h3{font-size:22px;color:#fff;margin-bottom:4px}
 .sercotec-box p{color:#d1e8da;font-size:15.5px}
 
@@ -219,7 +221,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap">
     <div>
       <h1>¿Sigues anotando todo a mano?</h1>
-      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, emites boletas y facturas electrónicas SII, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Te lo dejamos funcionando en tu local y te acompañamos paso a paso.</p>
+      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, emites boletas y facturas electrónicas SII, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Lo instalamos en tu local y te acompañamos paso a paso.</p>
       <div class="cta-row">
         <a class="btn" href="#contacto">Agenda tu demo gratis</a>
         <a class="btn ghost" id="wa-hero" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
@@ -229,7 +231,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         <li>Demo sin compromiso en tu local</li>
         <li>Con tus propios productos</li>
       </ul>
-      <p class="note">Planes de software desde 0,8 UF + IVA al mes. <a href="#planes">Ver costos y servicios</a></p>
+      <p class="note">Instalación desde 1,5 UF. <a href="#planes">Ver servicios y planes</a></p>
     </div>
     <div class="duo" aria-hidden="true">
       <div class="notebook">
@@ -362,7 +364,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     </div>
     
     <div class="steps-disclaimer" style="margin-top: 1.5rem; font-size: 0.85rem; color: #666; text-align: center;">
-      <p>* Incluye hasta 100 productos en plan Esencial y 200 en Estándar. Cargas adicionales por planilla Excel.</p>
+      <p>* Incluye hasta 100 productos en servicio Esencial y 200 en Pro. Cargas adicionales por planilla Excel.</p>
       <p>** Soporte remoto continuo. Inducción presencial sujeta a factibilidad en RM, Valparaíso y Concepción.</p>
     </div>
   </div>
@@ -386,15 +388,49 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   </div>
 </section>
 
-<!-- SECCIÓN CLARA DE COSTOS Y SERVICIOS (SOFTWARE + IMPLEMENTACIÓN GSI360) -->
+<!-- SECCIÓN DE PRECIOS: 1. INSTALACIÓN (PRIMERO) Y 2. SUSCRIPCIÓN DE SOFTWARE (SEGUNDO) -->
 <section id="planes" style="background:var(--bg)">
   <div class="wrap">
-    <h2>Planes de Software y Servicios GSI360</h2>
-    <p class="sub">Para que sepas exactamente qué se paga: por un lado tienes la suscripción mensual del sistema (OmniSalesPOS) y por otro los servicios independientes de instalación o postulación asistida (GSI360).</p>
+    <h2>Inversión transparente para tu negocio</h2>
+    <p class="sub">Conoce los costos de instalación inicial (pago único por servicio local GSI360) y los planes de suscripción mensual del sistema (OmniSalesPOS).</p>
     
-    <!-- 1. SUSCRIPCIÓN DE SOFTWARE -->
-    <h3 style="font-size:22px; margin-bottom:16px; color:var(--deep)">1. Suscripción Mensual del Sistema (Software)</h3>
-    <div class="plans" style="margin-bottom:48px;">
+    <!-- PASO 1: SERVICIO DE INSTALACIÓN (PRIMERO) -->
+    <h3 style="font-size:24px; margin-bottom:8px; color:var(--deep)">1. Servicio de Instalación y Puesta en Marcha <span style="font-size:16px; font-weight:500; color:var(--mut)">(Se paga por única vez)</span></h3>
+    <p style="color:var(--mut); font-size:15.5px; margin-bottom:24px">Elige el nivel de acompañamiento técnico y presencial que necesitas para dejar tu local operando desde el día uno:</p>
+    
+    <div class="setup-grid">
+      <div class="setup-card">
+        <h4>Servicio Esencial</h4>
+        <div class="setup-price">1,5 a 2,0 UF <small>+ IVA (Único pago)</small></div>
+        <ul>
+          <li>Configuración inicial de cuenta y parámetros SII.</li>
+          <li>Carga base de catálogo de hasta 100 productos.</li>
+          <li>Asistencia guiada para importación de inventario restante.</li>
+          <li>Capacitación asistida / remota al personal.</li>
+        </ul>
+        <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para almacenes pequeños y botillerías que inician rápido.</p>
+      </div>
+
+      <div class="setup-card pop">
+        <span class="setup-badge">Recomendado</span>
+        <h4>Servicio Pro (Llave en Mano)</h4>
+        <div class="setup-price">2,5 a 3,5 UF <small>+ IVA (Único pago)</small></div>
+        <ul>
+          <li>Configuración avanzada de caja y perfiles de usuario.</li>
+          <li>Carga base de catálogo de hasta 200 productos.</li>
+          <li>Instalación y conexión física de equipos en el mesón (PC, lector, impresora, gaveta o báscula).</li>
+          <li><strong>Capacitación presencial en terreno</strong> con tus propios productos y procesos.</li>
+          <li>2 semanas de acompañamiento prioritario en marcha blanca.</li>
+        </ul>
+        <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para minimarkets, ferreterías y comercios establecidos.</p>
+      </div>
+    </div>
+
+    <!-- PASO 2: PLANES DE SUSCRIPCIÓN DE SOFTWARE (SEGUNDO) -->
+    <h3 style="font-size:24px; margin-top:40px; margin-bottom:8px; color:var(--deep)">2. Planes de Suscripción del Software <span style="font-size:16px; font-weight:500; color:var(--mut)">(Mensual o Anual)</span></h3>
+    <p style="color:var(--mut); font-size:15.5px; margin-bottom:24px">Elige el plan de OmniSalesPOS según el tamaño de tu operación (con facturación electrónica DTE incluida desde el plan base):</p>
+    
+    <div class="plans" style="margin-bottom:36px;">
       <div class="plan">
         <h3>Emprendedor</h3>
         <p class="for">Almacenes, botillerías y microcomercios que inician su digitalización.</p>
@@ -464,47 +500,16 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       </div>
     </div>
 
-    <!-- 2. SERVICIOS PROFESIONALES GSI360 (INSTALACIÓN Y POSTULACIÓN) -->
-    <div class="setup-box">
-      <h3>2. Servicios Profesionales GSI360 (Pagos Únicos Independientes)</h3>
-      <p style="color:var(--mut); font-size:15.5px">Estos servicios no están incluidos en el costo mensual del software, ya que implican trabajo humano especializado de implementación en terreno o asesoría de proyectos:</p>
-      
-      <div class="setup-grid">
-        <div class="setup-card">
-          <h4>Paquetes de Puesta en Marcha (Instalación Local)</h4>
-          <div class="setup-price">Desde 1,5 a 3,5 UF <small>+ IVA (Único pago)</small></div>
-          <ul>
-            <li>Configuración inicial de cuenta y parámetros SII.</li>
-            <li>Carga base de catálogo y asistencia en migración de inventario.</li>
-            <li>Configuración de hardware en mesón (impresoras, lectores, balanzas).</li>
-            <li>Capacitación presencial opcional en terreno al personal.</li>
-          </ul>
-          <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Elige la modalidad Esencial o Estándar según el nivel de ayuda presencial que requieras.</p>
-        </div>
-
-        <div class="setup-card" style="border:2px solid var(--green); background:#fff">
-          <h4>Servicio de Asesoría y Postulación Sercotec</h4>
-          <div class="setup-price">Honorarios por éxito / Gestión <small>(Consúltanos)</small></div>
-          <ul>
-            <li><strong>Servicio independiente de acompañamiento y postulación</strong> al fondo "Digitaliza Tu Almacén" o "Kit Digital".</li>
-            <li>Armado del proyecto de inversión, cotizaciones formales y postulación guiada.</li>
-            <li>Te ayudamos a que el fondo te financie 100% el software anual, hardware y puesta en marcha a costo cero.</li>
-          </ul>
-          <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal si buscas apalancar recursos públicos para modernizar tu negocio.</p>
-        </div>
-      </div>
-    </div>
-
     <!-- Bloque de Subsidio Sercotec -->
     <div class="sercotec-box">
       <div>
         <h3>¿Quieres postular al subsidio de Sercotec con nuestra ayuda experta?</h3>
-        <p>Nuestro **Plan Emprendedor Anual** (~$359.000 + IVA) sumado a la puesta en marcha cabe 100% dentro del fondo no reembolsable de Sercotec ($2,4M a $3M). Consúltanos por el servicio de postulación guiada.</p>
+        <p>Nuestro **Plan Emprendedor Anual** (~$359.000 + IVA) sumado al servicio de instalación cabe 100% dentro del fondo no reembolsable de Sercotec ($2,4M a $3M). Consúltanos por el servicio de postulación guiada.</p>
       </div>
       <a class="btn" style="background:#fff;color:var(--deep);border-color:#fff;white-space:nowrap" href="#contacto">Asesorarme para Sercotec</a>
     </div>
 
-    <p class="fine">La suscripción mensual de software y los servicios GSI360 se cotizan y coordinan transparentemente antes de activar cualquier cuenta.</p>
+    <p class="fine">El servicio de instalación es un pago único inicial y la suscripción de software se contrata de forma mensual o anual.</p>
   </div>
 </section>
 
@@ -516,8 +521,8 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     <details><summary>¿Incluye boleta y factura electrónica ante el SII (DTE)?</summary>
       <p>Sí. OmniSalesPOS integra la facturación electrónica oficial (boleta, factura, notas de crédito y débito) en todos sus planes desde el básico, permitiéndote cumplir con la normativa legal del SII sin pagos sorpresa.</p></details>
 
-    <details><summary>¿Por qué la suscripción del software y la puesta en marcha se cobran por separado?</summary>
-      <p>Porque el software (OmniSalesPOS) es una plataforma tecnológica en la nube con cobro mensual, mientras que la **puesta en marcha y la asesoría de postulación** son servicios profesionales humanos operados por GSI360 (que incluyen técnico en terreno, configuración de equipos, carga de productos y gestión de proyectos).</p></details>
+    <details><summary>¿Por qué se paga la instalación por separado de la suscripción?</summary>
+      <p>Porque el software (OmniSalesPOS) es una plataforma tecnológica en la nube con cobro mensual, mientras que el **servicio de instalación** es el trabajo profesional humano operado por GSI360 (que incluye técnico en terreno, configuración de equipos, carga de productos y capacitación).</p></details>
 
     <details><summary>¿Cómo funciona el servicio de postulación y asesoría para Sercotec?</summary>
       <p>Es un servicio de acompañamiento profesional donde evaluamos tu perfil, preparamos los antecedentes, cotizaciones formales y te guiamos en la postulación al fondo <b>"Digitaliza tu Almacén"</b> para que puedas financiar el costo del software, equipos y puesta en marcha sin arriesgar tu propio capital.</p></details>
@@ -606,7 +611,6 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         </div>
       </div>
 
-      <!-- NUEVO CAMPO DE SELECCIÓN PARA ASESORÍA SERCOTEC -->
       <div class="form-group">
         <label for="servicio_extra">¿Te interesa el servicio de asesoría y postulación Sercotec? *</label>
         <select id="servicio_extra" name="servicio_extra" required>
