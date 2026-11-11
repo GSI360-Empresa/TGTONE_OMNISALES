@@ -84,7 +84,12 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:18em}
 .service{background:var(--deep);color:#fff}
 .service .sub{color:#b9d3c4}
 .service h2{max-width:20em}
-.service-content{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:center}
+.service-content{
+  display: grid;
+  grid-template-columns: 0.8fr 1.4fr; /* Da más espacio a la derecha para que no se vea apretado */
+  gap: 40px;
+  align-items: center;
+}
 .service-image{display:block;width:100%;height:auto;aspect-ratio:670/435;object-fit:cover;border:1px solid rgba(255,255,255,.2);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
 .svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .svc div{border-left:3px solid var(--amber);padding-left:16px}
@@ -333,13 +338,14 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     <div class="badge"><img src="img/logo-gsi360.png" width="72" height="56" alt="GSI360"><span>Tecnología TGT ONE + Servicio GSI360</span></div>
     <h2>Tecnología TGT ONE impulsada por el servicio local de GSI360</h2>
     <p class="sub">OmniSalesPOS forma parte de la suite tecnológica TGT ONE. En GSI360 nos encargamos de configurarlo, cargar tus productos y acompañarte desde el primer día.</p>
+    
     <div class="service-content">
       <img class="service-image" src="img/omnisales y gsi360.png" width="670" height="435" alt="Equipo de GSI360 muestra el sistema OmniSalesPOS en un minimarket" loading="lazy">
       <div class="svc">
-        <div><strong>Cargamos tus productos</strong><span>Más de 100 productos cargados por ti al partir. El resto lo importas desde Excel.</span></div>
-        <div><strong>Te enseñamos en tu local</strong><span>Capacitación en terreno, con tus propios productos y tu forma de trabajar.</span></div>
-        <div><strong>Usamos tu equipo o conseguimos uno</strong><span>Computador, impresora, gaveta o lector: te asesoramos y lo dejamos conectado.</span></div>
-        <div><strong>Soporte cuando lo necesites</strong><span>Atención por ticket desde el plan base, y chat y teléfono en planes superiores.</span></div>
+        <div><strong>Carga inicial de catálogo</strong><span>Hasta 100 o 300 productos listos al partir. Asistencia guiada para incorporar el resto del inventario.</span></div>
+        <div><strong>Capacitación en el local</strong><span>Inducción operativa con los productos del negocio (sujeto a factibilidad física en Santiago, Valparaíso, Viña del Mar, Quilpué y Concepción).</span></div>
+        <div><strong>Compatibilidad de equipos</strong><span>Computador, impresora, gaveta o lector: asesoría técnica integral y conexión completa de dispositivos.</span></div>
+        <div><strong>Soporte permanente</strong><span>Atención por ticket desde el plan base, con canales de chat y teléfono habilitados en categorías superiores.</span></div>
       </div>
     </div>
   </div>
