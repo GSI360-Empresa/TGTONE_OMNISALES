@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OmniSalesPOS · Punto de venta y control de tu negocio | GSI360</title>
-<meta name="description" content="Cobra, emite boletas/facturas SII, controla tu stock, cuadra tu caja y conoce tus márgenes. Te lo dejamos funcionando en tu local. Agenda tu demo gratis.">
+<meta name="description" content="Cobra, emite boletas/facturas SII, controla tu stock, cuadra tu caja y conoce tus márgenes en un solo sistema. Te lo dejamos funcionando en tu local. Agenda tu demo gratis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
@@ -92,6 +92,17 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:20em}
 .svc strong{display:block;font:700 19px 'Bricolage Grotesque',sans-serif;margin-bottom:6px}
 .svc span{color:#cfe3d7;font-size:15.5px}
 
+/* Secciones de Implementación GSI360 */
+.setup-box{margin-top:48px;background:#fff;border:2px solid var(--green);border-radius:20px;padding:32px;box-shadow:0 10px 30px rgba(23,128,61,0.06)}
+.setup-box h3{font-size:24px;margin-bottom:8px;color:var(--deep)}
+.setup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px}
+.setup-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column}
+.setup-card h4{font:700 18px 'Bricolage Grotesque',sans-serif;color:var(--green);margin-bottom:4px}
+.setup-price{font:800 22px 'Bricolage Grotesque',sans-serif;color:var(--ink);margin-bottom:12px}
+.setup-card ul{list-style:none;font-size:14.5px;flex:1;margin-bottom:16px}
+.setup-card li{padding:3px 0 3px 18px;position:relative}
+.setup-card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+
 .plans{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
 .plan{padding:26px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;position:relative}
 .plan:last-child{border-right:0}
@@ -156,6 +167,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   .plan{border-bottom:1px solid var(--line)}
   .plan:nth-child(2){border-right:0}
   .benefits{grid-template-columns:repeat(2,1fr)}
+  .setup-grid{grid-template-columns:1fr}
 }
 @media(max-width:860px){
   .hero .wrap,.solve,.contact .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
@@ -207,14 +219,14 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap">
     <div>
       <h1>¿Sigues anotando todo a mano?</h1>
-      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, emites boletas/facturas SII, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Lo instalamos en tu local y te enseñamos a usarlo.</p>
+      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, emites boletas y facturas electrónicas SII, controlas tu stock, cuadras tu caja y conoces tus márgenes. Lo instalamos en tu local y te acompañamos paso a paso.</p>
       <div class="cta-row">
         <a class="btn" href="#contacto">Agenda tu demo gratis</a>
         <a class="btn ghost" id="wa-hero" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
       </div>
       <ul class="hero-points" aria-label="Ventajas de la demo">
-        <li>Boleta/Factura SII Incluida</li>
-        <li>Demo sin compromiso</li>
+        <li>Facturación SII desde plan básico</li>
+        <li>Demo sin compromiso en tu local</li>
         <li>Con tus propios productos</li>
       </ul>
       <p class="note">Planes desde 0,8 UF + IVA al mes. <a href="#planes">Ver todos los planes</a></p>
@@ -239,39 +251,39 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap solve">
     <div class="solve-heading">
       <h2>Todo tu negocio en un solo lugar</h2>
-      <p class="sub">Vendes, compras, emites documentos SII, controlas y decides desde un solo sistema.</p>
+      <p class="sub">Vendes, compras, emites documentos SII, controlas y decides desde una sola plataforma web.</p>
     </div>
     <div class="benefits">
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
         <h3>Facturación SII Incluida</h3>
-        <p>Emite boletas y facturas electrónicas de forma transparente en todos los planes.</p>
+        <p>Emite boletas y facturas electrónicas oficiales de forma nativa desde el plan más básico.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"></circle><circle cx="19" cy="20" r="1"></circle><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"></path><path d="M8 11h11"></path></svg></div>
-        <h3>Vende rápido</h3>
+        <h3>Venta rápida y mostrador</h3>
         <p>Promociones, packs, preventa, envases retornables y básculas conectadas.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"></path><path d="M3 8v9l9 5 9-5V8"></path><path d="M12 13v9"></path></svg></div>
         <h3>Controla tu stock</h3>
-        <p>Inventario en tiempo real con sugerencia de reposición e historial de costos.</p>
+        <p>Inventario al día con sugerencia automática de reposición e historial de costos.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9h.01M18 15h.01"></path></svg></div>
         <h3>Cuadra tu caja</h3>
-        <p>Apertura y cierre con arqueo a ciegas por denominación de billetes.</p>
+        <p>Apertura y cierre seguro mediante arqueo a ciegas por denominación de billetes.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9"></path><path d="M15 6h6v6"></path></svg></div>
         <h3>Márgenes FIFO reales</h3>
         <span class="plan-tag">Desde Plan Negocio</span>
-        <p>Calcula ganancia bruta real por producto y te alerta si el costo sube +10%.</p>
+        <p>Calcula ganancia bruta real por producto y avisa si tu proveedor sube precios.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></div>
         <h3>Míralo desde tu celular</h3>
-        <p>Ventas del día, cajas y stock en tiempo real desde la palma de tu mano.</p>
+        <p>Ventas del día, cajas y stock en tiempo real estés donde estés.</p>
       </article>
     </div>
   </div>
@@ -301,7 +313,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         </div>
         <div class="step-copy">
           <h3>Demostración por rubro</h3>
-          <p>Presentación en vivo adaptada a tu negocio (minimarket, botillería, ferretería, farmacia), usando un catálogo real y sin compromiso.</p>
+          <p>Presentación en vivo adaptada a tu sector (minimarket, botillería, ferretería, farmacia), usando un catálogo real y sin compromiso.</p>
         </div>
       </article>
 
@@ -322,7 +334,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         </div>
         <div class="step-copy">
           <h3>Configuración y carga base</h3>
-          <p>Instalación de la plataforma, conexión con el SII y carga inicial de tus productos para empezar a operar de inmediato.*</p>
+          <p>Instalación de la plataforma, conexión con el SII y carga inicial de tus productos para empezar a operar.*</p>
         </div>
       </article>
 
@@ -350,8 +362,8 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     </div>
     
     <div class="steps-disclaimer" style="margin-top: 1.5rem; font-size: 0.85rem; color: #666; text-align: center;">
-      <p>* Incluye hasta 100 productos en paquete Esencial y 200 en Estándar. Cargas masivas adicionales desde planilla Excel.</p>
-      <p>** Soporte remoto continuo. Inducción presencial sujeta a cobertura en RM, Valparaíso y Concepción.</p>
+      <p>* Incluye hasta 100 productos en plan Esencial y 200 en Estándar. Cargas adicionales por planilla Excel.</p>
+      <p>** Soporte remoto continuo. Inducción presencial sujeta a factibilidad en RM, Valparaíso y Concepción.</p>
     </div>
   </div>
 </section>
@@ -360,15 +372,56 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap">
     <div class="badge"><img src="img/logo-gsi360.png" width="72" height="56" alt="GSI360"><span>Tecnología TGT ONE + Servicio GSI360</span></div>
     <h2>Tecnología TGT ONE impulsada por el servicio local de GSI360</h2>
-    <p class="sub">OmniSalesPOS forma parte de la suite tecnológica TGT ONE. En GSI360 nos encargamos de configurarlo, cargar tus productos y acompañarte desde el primer día en terreno.</p>
+    <p class="sub">OmniSalesPOS forma parte de la suite tecnológica TGT ONE. En GSI360 nos encargamos de configurarlo, cargar tus productos y acompañarte desde el primer día.</p>
     
     <div class="service-content">
       <img class="service-image" src="img/omnisales y gsi360.png" width="670" height="435" alt="Equipo de GSI360 muestra el sistema OmniSalesPOS en un minimarket" loading="lazy">
       <div class="svc">
-        <div><strong>Carga inicial de catálogo</strong><span>Cargamos tus primeros 100 o 200 productos por ti. Te enseñamos a migrar masivamente el resto vía Excel.</span></div>
-        <div><strong>Capacitación en tu mesón</strong><span>Inducción presencial operativa en tu propio local con tus productos reales (Santiago, Valparaíso, Viña del Mar, Concepción).</span></div>
+        <div><strong>Carga inicial de catálogo</strong><span>Cargamos tus primeros productos iniciales y te ayudamos y enseñamos cómo migrar el resto de tu inventario de forma simple.</span></div>
+        <div><strong>Capacitación en tu local</strong><span>Acompañamiento presencial, trabajando directamente con tus propios productos y tu forma habitual de operar *(sujeto a factibilidad en tu zona)*.</span></div>
         <div><strong>Compatibilidad de hardware</strong><span>Conectamos tu computador, tablet, impresora térmica, báscula o lector de códigos de barra sin enredos.</span></div>
         <div><strong>Soporte local continuo</strong><span>Atención por ticket desde el plan Emprendedor, sumando canales de chat y teléfono prioritario en planes superiores.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN DE MODELO DE SERVICIO: PUESTA EN MARCHA GSI360 -->
+<section style="background:var(--bg)">
+  <div class="wrap">
+    <h2>¿Cómo contratamos y ponemos en marcha tu sistema?</h2>
+    <p class="sub">Para proteger tu inversión y mantener un estándar profesional, el servicio se divide en dos partes transparentes: la suscripción mensual del software y el servicio único de implementación en tu local.</p>
+    
+    <div class="setup-box">
+      <h3>Paquetes de Puesta en Marcha (Servicio GSI360 - Pago Único de Arranque)</h3>
+      <p style="color:var(--mut); font-size:15.5px">El software es tuyo por suscripción mensual, y nosotros nos encargamos del trabajo físico y técnico en tu negocio al partir:</p>
+      
+      <div class="setup-grid">
+        <div class="setup-card">
+          <h4>Puesta en Marcha Esencial</h4>
+          <div class="setup-price">1,5 a 2,0 UF <small>+ IVA (Único pago)</small></div>
+          <ul>
+            <li>Configuración inicial de cuenta y parámetros SII.</li>
+            <li>Carga base de catálogo de hasta 100 productos.</li>
+            <li>Asistencia guiada para importación de inventario restante.</li>
+            <li>Capacitación asistida / remota al personal.</li>
+          </ul>
+          <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para almacenes pequeños y botillerías que inician rápido.</p>
+        </div>
+
+        <div class="setup-card" style="border:2px solid var(--green); background:#fff">
+          <span style="background:var(--green); color:#fff; font-size:11px; font-weight:700; padding:3px 8px; border-radius:4px; width:max-content; margin-bottom:8px">MÁS SOLICITADO</span>
+          <h4>Puesta en Marcha Estándar (Llave en Mano)</h4>
+          <div class="setup-price">2,5 a 3,5 UF <small>+ IVA (Único pago)</small></div>
+          <ul>
+            <li>Configuración avanzada de caja y perfiles de usuario.</li>
+            <li>Carga base de catálogo de hasta 200 productos.</li>
+            <li>Instalación y conexión física de equipos en el mesón (PC, lector, impresora, gaveta o báscula).</li>
+            <li><strong>Capacitación presencial en terreno</strong> con tus propios productos y procesos.</li>
+            <li>2 semanas de acompañamiento prioritario en marcha blanca.</li>
+          </ul>
+          <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para minimarkets, ferreterías y comercios establecidos.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -377,7 +430,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
 <section id="planes">
   <div class="wrap">
     <h2>Elige según el tamaño de tu negocio</h2>
-    <p class="sub">Planes mensuales en UF + IVA. Contrata en modalidad anual y obtén **1 mes gratis** (pagas 11 meses de 12).</p>
+    <p class="sub">Planes mensuales en UF + IVA (con facturación electrónica DTE incluida desde el plan base). Contrata en modalidad anual y obtén **1 mes gratis** (pagas 11 meses de 12).</p>
     
     <div class="plans">
       <div class="plan">
@@ -458,7 +511,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <a class="btn" style="background:#fff;color:var(--deep);border-color:#fff;white-space:nowrap" href="#contacto">Asesorarme para Sercotec</a>
     </div>
 
-    <p class="fine">La puesta en marcha presencial, carga asistida de inventario y paquetes de hardware (PC, balanza, impresora, gaveta) se cotizan en un único pago al inicio.</p>
+    <p class="fine">La suscripción mensual y el servicio único de puesta en marcha GSI360 se coordinan directamente al momento de activar tu cuenta.</p>
   </div>
 </section>
 
@@ -468,7 +521,10 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     <p class="sub">Resolvemos tus dudas principales de forma directa.</p>
 
     <details><summary>¿Incluye boleta y factura electrónica ante el SII (DTE)?</summary>
-      <p>Sí. OmniSalesPOS integra la facturación electrónica oficial (boleta, factura, notas de crédito y débito) en todos sus planes, permitiéndote cumplir con la normativa legal del SII sin costos extra escondidos.</p></details>
+      <p>Sí. OmniSalesPOS integra la facturación electrónica oficial (boleta, factura, notas de crédito y débito) en todos sus planes desde el básico, permitiéndote cumplir con la normativa legal del SII sin pagos sorpresa.</p></details>
+
+    <details><summary>¿Cuál es la diferencia entre la suscripción y la puesta en marcha?</summary>
+      <p>La **suscripción mensual o anual** corresponde al uso de la plataforma en la nube de OmniSalesPOS. La **puesta en marcha** es el servicio profesional de GSI360 donde nos encargamos físicamente de configurar tu cuenta, cargar tus productos iniciales y capacitarte en terreno.</p></details>
 
     <details><summary>¿Puedo financiar la contratación con el subsidio de Sercotec?</summary>
       <p>¡Absolutamente! Nuestro paquete anual de suscripción y puesta en marcha califica perfectamente dentro de los fondos de <b>"Digitaliza tu Almacén"</b> y <b>"Kit Digital" de Sercotec</b>. Te entregamos la cotización formal en el formato exigido.</p></details>
@@ -477,13 +533,13 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <p>No. Es un sistema 100% web que funciona en el navegador de cualquier computador, tablet o teléfono celular. Si no tienes equipos, en GSI360 te proveemos la solución completa (pantalla, lector, impresora y gaveta).</p></details>
 
     <details><summary>¿Funciona si se cae la conexión a internet?</summary>
-      <p>Sí. Cuenta con **modo offline nativo**. Si se interrumpe la conexión, puedes seguir cobrando y emitiendo tus ventas con normalidad. En cuanto regresa el internet, el sistema sincroniza todo automáticamente.</p></details>
+      <p>Sí. Cuenta com **modo offline nativo**. Si se interrumpe la conexión, puedes seguir cobrando y emitiendo tus ventas con normalidad. En cuanto regresa el internet, el sistema sincroniza todo automáticamente.</p></details>
 
     <details><summary>¿Qué soporte técnico recibo al contratar?</summary>
       <p>Recibes atención técnica por ticket desde el plan Emprendedor, atención por chat en el plan Comercio y atención telefónica prioritaria directa en el plan Negocio, además de nuestro acompañamiento local en la puesta en marcha.</p></details>
 
     <details><summary>¿Cargan mis productos al sistema?</summary>
-      <p>Sí. En tu puesta en marcha dejamos cargados tus primeros 100 a 200 productos principales, y te guiamos para importar masivamente el resto de tu catálogo mediante un simple archivo Excel.</p></details>
+      <p>Sí. En tu puesta en marcha dejamos cargados tus primeros productos principales y te guiamos y enseñamos cómo migrar el resto de tu inventario mediante un simple archivo Excel.</p></details>
 
     <details><summary>¿Puedo ver las ventas de mi local desde el celular?</summary>
       <p>Sí. Como es un sistema en la nube, puedes ingresar desde tu smartphone en cualquier momento y revisar el volumen de ventas, aperturas/cierres de caja y stock en tiempo real sin estar en el negocio.</p></details>
