@@ -37,7 +37,7 @@ header .btn{padding:11px 18px;font-size:15px}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,68px);margin-bottom:22px}
 .hero p.lead{font-size:20px;color:var(--mut);max-width:34em;margin-bottom:30px}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.cta-row{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 .hero .note{margin-top:18px;font-size:15px;color:var(--mut)}
 
 .duo{position:relative;height:380px}
@@ -46,7 +46,7 @@ header .btn{padding:11px 18px;font-size:15px}
 .notebook s{text-decoration-color:#c0392b;text-decoration-thickness:2px}
 .ticket{position:absolute;right:0;bottom:0;width:66%;background:#fff;border:2px solid var(--green);border-radius:14px;padding:20px 20px 18px;box-shadow:0 14px 30px rgba(13,58,42,.18);transform:rotate(1.5deg)}
 .ticket h3{font-size:15px;color:var(--mut);font-weight:600;font-family:'Instrument Sans',sans-serif;letter-spacing:0;margin-bottom:6px}
-.ticket .tot{font:800 40px/1 'Bricolage Grotesque',sans-serif;color:var(--deep);margin-bottom:12px}
+.ticket .tot{font:800 34px/1 'Bricolage Grotesque',sans-serif;color:var(--green);margin-bottom:12px}
 .ticket ul{list-style:none;font-size:15px}
 .ticket li{display:flex;gap:8px;padding:3px 0}
 .ticket li::before{content:"✓";color:var(--green);font-weight:700}
@@ -148,12 +148,12 @@ footer b{color:#fff}
   <div class="wrap">
     <div>
       <h1>¿Sigues anotando todo a mano?</h1>
-      <p class="lead">Cobra, controla tu stock, cuadra tu caja y conoce tus márgenes en un solo sistema. Y te lo dejamos funcionando en tu local.</p>
+      <p class="lead">Cobra, controla tu stock, cuadra tu caja y conoce tus márgenes en un solo sistema. Lo instalamos en tu local y te enseñamos a usarlo.</p>
       <div class="cta-row">
         <a class="btn" href="#contacto">Agenda tu demo gratis</a>
         <a class="btn ghost" id="wa-hero" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
       </div>
-      <p class="note">Planes desde 0,8 UF + IVA al mes. Sin letra chica con la instalación: te contamos todo en la demo.</p>
+      <p class="note">Planes desde 0,8 UF + IVA al mes. <a href="#planes">Ver planes y precios</a></p>
     </div>
     <div class="duo" aria-hidden="true">
       <div class="notebook">
@@ -163,9 +163,9 @@ footer b{color:#fff}
         Stock pan: ni idea
       </div>
       <div class="ticket">
-        <h3>Venta #1042 · Caja 1</h3>
-        <div class="tot">$6.747</div>
-        <ul><li>Stock actualizado</li><li>Caja cuadrada al cierre</li><li>Lo ves desde tu celular</li></ul>
+        <h3>Así termina tu día con OmniSalesPOS</h3>
+        <div class="tot">Caja cuadrada</div>
+        <ul><li>Ventas del día a la vista</li><li>Stock siempre actualizado</li><li>Lo ves desde tu celular</li></ul>
       </div>
     </div>
   </div>
@@ -391,7 +391,7 @@ footer b{color:#fff}
 <script>
 /* ====== CONFIGURA AQUÍ ====== */
 var PIXEL_ID = '';        // ID del píxel de Meta de GSI360 (ej. '123456789012345')
-var WEBHOOK_URL = 'https://flow.zoho.com/946318302/flow/webhook/incoming?zapikey=1001.c7389b8b3e1bf996c9d6cabfd4453c7d.9d46800b2432397ab8f20ed1cee0858b&isdebug=false';     // Configurar un endpoint seguro de Zoho antes de activar el envío automático
+var WEBHOOK_URL = '';     // Configurar un endpoint seguro de Zoho antes de activar el envío automático
 var WA_NUMBER = '56998923562';
 /* ============================ */
 
