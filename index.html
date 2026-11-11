@@ -37,7 +37,11 @@ header .btn{padding:11px 18px;font-size:15px}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,68px);margin-bottom:22px}
 .hero p.lead{font-size:20px;color:var(--mut);max-width:34em;margin-bottom:30px}
+.hero-brand{color:var(--green);font-weight:600}
 .cta-row{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.hero-points{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:8px 22px;list-style:none;margin-top:22px;font-size:15px;font-weight:600}
+.hero-points li{display:flex;align-items:baseline;gap:8px}
+.hero-points li::before{content:"✓";color:var(--green);font-weight:700}
 .hero .note{margin-top:18px;font-size:15px;color:var(--mut)}
 
 .duo{position:relative;height:380px}
@@ -65,6 +69,17 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:18em}
 .benefit h3{font-size:18px;line-height:1.2;letter-spacing:0;margin-bottom:6px}
 .benefit p{color:var(--mut);font-size:15.5px;line-height:1.4}
 .benefit .plan-tag{display:inline-block;margin:0 0 6px;padding:2px 9px;border-radius:999px;background:#fff0c2;color:#705000;font-size:12px;font-weight:600;line-height:1.4}
+
+.steps{background:var(--bg)}
+.steps h2{margin-bottom:28px}
+.steps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.step-card{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 24px rgba(13,58,42,.06)}
+.step-visual{position:relative;display:grid;place-items:center;height:168px;padding:14px;background:linear-gradient(145deg,#e7f3eb,#f2f8f3)}
+.step-visual svg{display:block;width:100%;height:100%;max-width:280px}
+.step-number{position:absolute;top:16px;left:16px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--deep);color:#fff;font-size:17px;font-weight:700}
+.step-copy{padding:18px 20px 20px}
+.step-copy h3{font-size:20px;letter-spacing:0;margin-bottom:6px}
+.step-copy p{color:var(--mut);font-size:16px}
 
 .service{background:var(--deep);color:#fff}
 .service .sub{color:#b9d3c4}
@@ -115,14 +130,23 @@ textarea{min-height:84px;resize:vertical}
 #msg strong{font:700 22px 'Bricolage Grotesque',sans-serif;display:block;margin-bottom:6px}
 #msg .btn{margin-top:12px}
 
-footer{background:var(--deep);color:#b9d3c4;padding:36px 0;font-size:15px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-footer b{color:#fff}
+footer{background:var(--deep);color:#b9d3c4;padding:28px 0;font-size:15px}
+footer .footer-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.footer-info{display:grid;gap:12px}
+.footer-brand{display:inline-flex;align-items:center;gap:14px;width:max-content;max-width:100%;padding:8px 16px;background:#fff;border-radius:12px;line-height:0}
+.footer-brand img{display:block;width:auto;height:38px;max-width:55vw;object-fit:contain}
+.footer-brand .footer-sep{width:1px;height:28px;background:var(--line)}
+.footer-copy{display:grid;gap:2px;line-height:1.45}
+.footer-copy strong{color:#fff}
+.footer-copy b{color:#fff}
+.footer-contact{flex-shrink:0;margin-right:170px;background:#25d366;color:#06361b;font:700 15px 'Instrument Sans',sans-serif;padding:14px 20px;border-radius:999px;text-decoration:none}
+.footer-contact:hover{background:#1fc15d}
 .wa-float{position:fixed;right:18px;bottom:18px;z-index:20;background:#25d366;color:#06361b;font:700 15px 'Instrument Sans',sans-serif;padding:14px 18px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 
 @media(max-width:860px){
   .hero .wrap,.solve,.contact .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
   .solve{gap:24px}
+  .steps-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .service-content{grid-template-columns:1fr;gap:28px}
   .plans{grid-template-columns:1fr}
   .plan{border-right:0;border-bottom:1px solid var(--line)}
@@ -132,7 +156,7 @@ footer b{color:#fff}
   form{padding:22px}
   section{padding:56px 0}
 }
-@media(max-width:520px){.svc,.benefits{grid-template-columns:minmax(0,1fr)}section{padding:44px 0}.form-row{grid-template-columns:1fr}.notebook{font-size:21px}.brands .gsi,.brands .sep{display:none}.logo img{height:38px}.badge{font-size:15px}}
+@media(max-width:520px){.svc,.benefits,.steps-grid{grid-template-columns:minmax(0,1fr)}.step-visual{height:156px}.hero-points{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}footer{padding:24px 0 76px}footer .footer-wrap{align-items:flex-start;flex-direction:column;gap:16px}.footer-brand{gap:10px;padding:8px 12px}.footer-brand img{height:32px}.footer-brand .footer-sep{height:24px}.footer-contact{margin-right:140px}.form-row{grid-template-columns:1fr}section{padding:44px 0}.notebook{font-size:21px}.brands .gsi,.brands .sep{display:none}.logo img{height:38px}.badge{font-size:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -154,11 +178,16 @@ footer b{color:#fff}
   <div class="wrap">
     <div>
       <h1>¿Sigues anotando todo a mano?</h1>
-      <p class="lead">Cobra, controla tu stock, cuadra tu caja y conoce tus márgenes en un solo sistema. Lo instalamos en tu local y te enseñamos a usarlo.</p>
+      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Lo instalamos en tu local y te enseñamos a usarlo.</p>
       <div class="cta-row">
         <a class="btn" href="#contacto">Agenda tu demo gratis</a>
         <a class="btn ghost" id="wa-hero" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
       </div>
+      <ul class="hero-points" aria-label="Ventajas de la demo">
+        <li>Demo gratis</li>
+        <li>Sin compromiso</li>
+        <li>Con tus propios productos</li>
+      </ul>
       <p class="note">Planes desde 0,8 UF + IVA al mes. <a href="#planes">Ver planes y precios</a></p>
     </div>
     <div class="duo" aria-hidden="true">
@@ -214,6 +243,73 @@ footer b{color:#fff}
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8a15 15 0 0 1 17.5 0"></path><path d="M6 12a10 10 0 0 1 10.5-.8"></path><path d="M9.5 15.5a5 5 0 0 1 4-.7"></path><path d="m3 3 18 18"></path><path d="M12 20h.01"></path></svg></div>
         <h3>Sin internet, sigues vendiendo</h3>
         <p>Se sincroniza cuando vuelve.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2>Así de simple parte</h2>
+    <div class="steps-grid">
+      <article class="step-card">
+        <div class="step-visual" aria-hidden="true">
+          <span class="step-number">1</span>
+          <svg viewBox="0 0 260 150" fill="none">
+            <circle cx="23" cy="73" r="3" fill="#17803d"/><circle cx="237" cy="49" r="4" fill="#f4b41a"/><circle cx="228" cy="111" r="3" fill="#17803d"/>
+            <rect x="39" y="27" width="177" height="94" rx="8" fill="#0d3a2a"/>
+            <rect x="46" y="34" width="163" height="79" rx="4" fill="white"/>
+            <rect x="54" y="42" width="38" height="62" rx="5" fill="#f4f8f4" stroke="#d9e5dc"/>
+            <rect x="100" y="42" width="38" height="62" rx="5" fill="#f4f8f4" stroke="#d9e5dc"/>
+            <rect x="146" y="42" width="55" height="62" rx="5" fill="#f4f8f4" stroke="#d9e5dc"/>
+            <circle cx="73" cy="55" r="8" fill="#f4b41a"/><path d="M62 76h22M62 83h18M62 94h16" stroke="#b9c9bf" stroke-width="4" stroke-linecap="round"/>
+            <path d="m108 68 10-13 10 13v13h-20V68Z" fill="#8fc7e8"/><path d="M107 84h22M107 92h15" stroke="#b9c9bf" stroke-width="4" stroke-linecap="round"/>
+            <path d="M154 51h38M154 62h31M154 73h38" stroke="#c6d8ce" stroke-width="5" stroke-linecap="round"/><rect x="153" y="84" width="40" height="12" rx="4" fill="#17803d"/>
+            <path d="M25 127h206" stroke="#b9c9bf" stroke-width="7" stroke-linecap="round"/><path d="M65 121v6M190 121v6" stroke="#0d3a2a" stroke-width="5"/>
+          </svg>
+        </div>
+        <div class="step-copy">
+          <h3>Te mostramos el sistema</h3>
+          <p>Demo con tus propios productos, sin compromiso.</p>
+        </div>
+      </article>
+      <article class="step-card">
+        <div class="step-visual" aria-hidden="true">
+          <span class="step-number">2</span>
+          <svg viewBox="0 0 260 150" fill="none">
+            <circle cx="26" cy="86" r="3" fill="#f4b41a"/><circle cx="231" cy="44" r="4" fill="#f4b41a"/>
+            <rect x="62" y="48" width="78" height="51" rx="5" fill="#0d3a2a"/><rect x="68" y="54" width="66" height="38" rx="2" fill="white"/>
+            <path d="M77 64h45M77 73h34M77 82h42" stroke="#b9c9bf" stroke-width="5" stroke-linecap="round"/>
+            <path d="M98 99v8M84 108h34" stroke="#516c60" stroke-width="5" stroke-linecap="round"/>
+            <rect x="34" y="111" width="192" height="11" rx="5" fill="#0d3a2a"/><rect x="44" y="123" width="174" height="23" rx="4" fill="#17803d"/>
+            <rect x="157" y="68" width="29" height="35" rx="3" fill="white" stroke="#d9e5dc"/><path d="M163 76h17M163 83h17M163 90h12" stroke="#c6d8ce" stroke-width="3" stroke-linecap="round"/>
+            <rect x="192" y="88" width="22" height="17" rx="4" fill="#315744"/><path d="M214 98h13" stroke="#d85c54" stroke-width="2"/>
+            <circle cx="218" cy="43" r="17" fill="#f4b41a"/><path d="m210 43 6 6 11-12" stroke="#0d3a2a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="step-copy">
+          <h3>Lo dejamos listo</h3>
+          <p>Instalamos, cargamos tu catálogo y conectamos tus equipos.</p>
+        </div>
+      </article>
+      <article class="step-card">
+        <div class="step-visual" aria-hidden="true">
+          <span class="step-number">3</span>
+          <svg viewBox="0 0 260 150" fill="none">
+            <circle cx="222" cy="46" r="3" fill="#f4b41a"/><circle cx="235" cy="93" r="3" fill="#17803d"/>
+            <rect x="86" y="22" width="84" height="113" rx="13" fill="#0d3a2a"/><rect x="92" y="28" width="72" height="100" rx="8" fill="white"/>
+            <path d="M103 39h48M103 48h32" stroke="#c6d8ce" stroke-width="5" stroke-linecap="round"/><rect x="102" y="57" width="32" height="12" rx="3" fill="#315744"/>
+            <path d="m139 67 7-7 6 4 9-11" stroke="#17803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="101" y="101" width="8" height="18" rx="2" fill="#b9d9c4"/><rect x="114" y="91" width="8" height="28" rx="2" fill="#8fc7a0"/><rect x="127" y="80" width="8" height="39" rx="2" fill="#49a76a"/><rect x="140" y="70" width="8" height="49" rx="2" fill="#17803d"/>
+            <rect x="23" y="51" width="61" height="27" rx="14" fill="white" stroke="#d9e5dc"/><circle cx="37" cy="64" r="9" fill="#17803d"/><path d="m33 64 3 3 5-6" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M51 61h24M51 68h16" stroke="#b9c9bf" stroke-width="3" stroke-linecap="round"/>
+            <rect x="177" y="91" width="59" height="27" rx="14" fill="white" stroke="#d9e5dc"/><circle cx="191" cy="104" r="8" fill="#f4b41a"/><path d="M204 101h23M204 108h16" stroke="#b9c9bf" stroke-width="3" stroke-linecap="round"/>
+            <ellipse cx="46" cy="116" rx="16" ry="5" fill="#f4b41a"/><path d="M30 116v8c0 3 7 6 16 6s16-3 16-6v-8" fill="#f4b41a"/><ellipse cx="46" cy="124" rx="16" ry="5" fill="#eaa400"/>
+          </svg>
+        </div>
+        <div class="step-copy">
+          <h3>Partes vendiendo</h3>
+          <p>Te enseñamos a usarlo y te acompañamos al partir.</p>
+        </div>
       </article>
     </div>
   </div>
@@ -413,9 +509,19 @@ footer b{color:#fff}
 </main>
 
 <footer>
-  <div class="wrap">
-    <span><b>OmniSalesPOS</b> · parte de la suite TGT One</span>
-    <span>Implementación, soporte y capacitación: <b>GSI360</b></span>
+  <div class="wrap footer-wrap">
+    <div class="footer-info">
+      <a class="footer-brand" href="#top" aria-label="OmniSalesPOS y GSI360, volver al inicio">
+        <img src="img/logo-omnisales.png" width="204" height="44" alt="OmniSalesPOS, parte de la suite TGT One">
+        <span class="footer-sep" aria-hidden="true"></span>
+        <img src="img/logo-gsi360.png" width="57" height="44" alt="GSI360">
+      </a>
+      <div class="footer-copy">
+        <strong>Tu negocio en un solo lugar.</strong>
+        <span>Implementación, soporte y capacitación por <b>GSI360</b>.</span>
+      </div>
+    </div>
+    <a class="footer-contact" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 </footer>
 
