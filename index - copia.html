@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OmniSalesPOS · Punto de venta y control de tu negocio | GSI360</title>
+<meta name="description" content="Cobra, controla tu stock, cuadra tu caja y conoce tus márgenes en un solo sistema. Te lo dejamos funcionando en tu local. Agenda tu demo gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#17803d;--green-d:#0f6a31;--deep:#0d3a2a;--ink:#16241c;--mut:#4b5d53;--line:#d9e5dc;--bg:#f5f9f5;--amber:#f4b41a;--white:#fff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',system-ui,sans-serif;color:var(--ink);background:var(--white);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Bricolage Grotesque','Instrument Sans',system-ui,sans-serif;line-height:1.08;letter-spacing:-.02em;font-weight:800}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 'Instrument Sans',sans-serif;padding:16px 24px;border-radius:10px;border:2px solid var(--green);background:var(--green);color:#fff;text-decoration:none;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--green-d)}
+.btn.ghost{background:transparent;color:var(--green)}
+.btn.ghost:hover{background:#e6f3ea}
+.btn[disabled]{opacity:.6;cursor:wait}
+
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brands{display:flex;align-items:center;gap:14px}
+.logo{display:block;line-height:0}
+.logo img,.brands .gsi{display:block;height:44px;width:auto}
+.brands .sep{width:1px;height:32px;background:var(--line)}
+.badge{display:inline-flex;align-items:center;gap:16px;background:#fff;color:var(--ink);border-radius:12px;padding:10px 20px 10px 14px;margin-bottom:26px;font:600 16px/1.3 'Instrument Sans',sans-serif}
+.badge img{height:56px;width:auto;display:block}
+header .btn{padding:11px 18px;font-size:15px}
+
+.hero{padding:64px 0 72px;background:linear-gradient(180deg,var(--bg),#fff)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,68px);margin-bottom:22px}
+.hero p.lead{font-size:20px;color:var(--mut);max-width:34em;margin-bottom:30px}
+.hero-brand{color:var(--green);font-weight:600}
+.cta-row{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.hero-points{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:8px 22px;list-style:none;margin-top:22px;font-size:15px;font-weight:600}
+.hero-points li{display:flex;align-items:baseline;gap:8px}
+.hero-points li::before{content:"✓";color:var(--green);font-weight:700}
+.hero .note{margin-top:18px;font-size:15px;color:var(--mut)}
+
+.duo{position:relative;height:380px}
+.notebook{position:absolute;left:0;top:10px;width:78%;padding:26px 22px 22px 46px;background:#fffef6;border:1px solid #e3dfc6;border-radius:6px;transform:rotate(-3deg);box-shadow:0 10px 24px rgba(13,58,42,.1);background-image:repeating-linear-gradient(transparent,transparent 33px,#cfdcec 33px,#cfdcec 34px);font:500 24px/34px 'Caveat',cursive;color:#2a3a5a}
+.notebook::before{content:"";position:absolute;left:34px;top:0;bottom:0;width:2px;background:#e9a7a0}
+.notebook s{text-decoration-color:#c0392b;text-decoration-thickness:2px}
+.ticket{position:absolute;right:0;bottom:0;width:66%;background:#fff;border:2px solid var(--green);border-radius:14px;padding:20px 20px 18px;box-shadow:0 14px 30px rgba(13,58,42,.18);transform:rotate(1.5deg)}
+.ticket h3{font-size:15px;color:var(--mut);font-weight:600;font-family:'Instrument Sans',sans-serif;letter-spacing:0;margin-bottom:6px}
+.ticket .tot{font:800 34px/1 'Bricolage Grotesque',sans-serif;color:var(--green);margin-bottom:12px}
+.ticket ul{list-style:none;font-size:15px}
+.ticket li{display:flex;gap:8px;padding:3px 0}
+.ticket li::before{content:"✓";color:var(--green);font-weight:700}
+
+section{padding:76px 0}
+section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:18em}
+.sub{color:var(--mut);max-width:38em;margin-bottom:40px}
+
+.solve{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+.solve-heading h2{margin-bottom:10px}
+.solve-heading .sub{margin-bottom:0}
+.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.benefit{padding:18px 20px;background:#f4f8f4;border:1px solid var(--line);border-radius:16px}
+.benefit-icon{display:grid;place-items:center;width:46px;height:46px;margin-bottom:12px;border-radius:12px;background:var(--green);color:#fff}
+.benefit-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.benefit h3{font-size:18px;line-height:1.2;letter-spacing:0;margin-bottom:6px}
+.benefit p{color:var(--mut);font-size:15.5px;line-height:1.4}
+.benefit .plan-tag{display:inline-block;margin:0 0 6px;padding:2px 9px;border-radius:999px;background:#fff0c2;color:#705000;font-size:12px;font-weight:600;line-height:1.4}
+
+.steps{background:var(--bg)}
+.steps h2{margin-bottom:28px}
+.steps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.step-card{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 24px rgba(13,58,42,.06)}
+.step-visual{position:relative;display:grid;place-items:center;height:168px;padding:14px;background:linear-gradient(145deg,#e7f3eb,#f2f8f3)}
+.step-visual svg{display:block;width:100%;height:100%;max-width:280px}
+.step-number{position:absolute;top:16px;left:16px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--deep);color:#fff;font-size:17px;font-weight:700}
+.step-copy{padding:18px 20px 20px}
+.step-copy h3{font-size:20px;letter-spacing:0;margin-bottom:6px}
+.step-copy p{color:var(--mut);font-size:16px}
+
+.service{background:var(--deep);color:#fff}
+.service .sub{color:#b9d3c4}
+.service h2{max-width:20em}
+.service-content{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:center}
+.service-image{display:block;width:100%;height:auto;aspect-ratio:670/435;object-fit:cover;border:1px solid rgba(255,255,255,.2);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.svc div{border-left:3px solid var(--amber);padding-left:16px}
+.svc strong{display:block;font:700 19px 'Bricolage Grotesque',sans-serif;margin-bottom:6px}
+.svc span{color:#cfe3d7;font-size:15.5px}
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.plan{padding:28px 24px;border-right:1px solid var(--line)}
+.plan:last-child{border-right:0}
+.plan h3{font-size:24px}
+.plan .for{color:var(--mut);font-size:15px;margin:4px 0 14px;min-height:46px}
+.plan .price{font:800 34px/1 'Bricolage Grotesque',sans-serif;color:var(--green)}
+.plan .price small{font:500 14px 'Instrument Sans',sans-serif;color:var(--mut)}
+.plan ul{list-style:none;margin-top:16px;font-size:15.5px}
+.plan li{padding:5px 0 5px 22px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.plan li.lim{color:var(--mut);padding-left:0;margin-top:8px;border-top:1px dashed var(--line);padding-top:12px}
+.plan li.lim::before{content:""}
+.fine{margin-top:16px;font-size:14.5px;color:var(--mut)}
+
+.faq{background:var(--bg)}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+summary{cursor:pointer;list-style:none;padding:18px 54px 18px 20px;font:600 17.5px 'Instrument Sans',sans-serif;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:26px;color:var(--green);font-weight:500}
+details[open] summary::after{content:"–"}
+details p{padding:0 20px 18px;color:var(--mut);max-width:44em}
+details p a{color:var(--green);font-weight:600}
+
+.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.contact h2{margin-bottom:14px}
+.contact .side p{color:var(--mut);margin-bottom:18px}
+form{background:#fff;border:2px solid var(--green);border-radius:16px;padding:28px;display:grid;gap:16px}
+.form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;min-width:0}
+label{font-weight:600;font-size:15px}
+input,select,textarea{font:inherit;padding:13px 14px;border:1.5px solid #b9c9bf;border-radius:8px;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--green);outline:3px solid #cfe8d8}
+textarea{min-height:84px;resize:vertical}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+#msg{grid-column:1/-1;display:none;padding:20px;border-radius:10px;background:#eaf5ee}
+#msg.ok{display:block}
+#msg strong{font:700 22px 'Bricolage Grotesque',sans-serif;display:block;margin-bottom:6px}
+#msg .btn{margin-top:12px}
+
+footer{background:var(--deep);color:#b9d3c4;padding:28px 0;font-size:15px}
+footer .footer-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.footer-info{display:grid;gap:12px}
+.footer-brand{display:inline-flex;align-items:center;gap:14px;width:max-content;max-width:100%;padding:8px 16px;background:#fff;border-radius:12px;line-height:0}
+.footer-brand img{display:block;width:auto;height:38px;max-width:55vw;object-fit:contain}
+.footer-brand .footer-sep{width:1px;height:28px;background:var(--line)}
+.footer-copy{display:grid;gap:2px;line-height:1.45}
+.footer-copy strong{color:#fff}
+.footer-copy b{color:#fff}
+.footer-contact{flex-shrink:0;margin-right:170px;background:#25d366;color:#06361b;font:700 15px 'Instrument Sans',sans-serif;padding:14px 20px;border-radius:999px;text-decoration:none}
+.footer-contact:hover{background:#1fc15d}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:20;background:#25d366;color:#06361b;font:700 15px 'Instrument Sans',sans-serif;padding:14px 18px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+@media(max-width:860px){
+  .hero .wrap,.solve,.contact .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .solve{gap:24px}
+  .steps-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .service-content{grid-template-columns:1fr;gap:28px}
+  .plans{grid-template-columns:1fr}
+  .plan{border-right:0;border-bottom:1px solid var(--line)}
+  .plan:last-child{border-bottom:0}
+  .plan .for{min-height:0}
+  .duo{height:360px}
+  form{padding:22px}
+  section{padding:56px 0}
+}
+@media(max-width:520px){.svc,.benefits,.steps-grid{grid-template-columns:minmax(0,1fr)}.step-visual{height:156px}.hero-points{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}footer{padding:24px 0 76px}footer .footer-wrap{align-items:flex-start;flex-direction:column;gap:16px}.footer-brand{gap:10px;padding:8px 12px}.footer-brand img{height:32px}.footer-brand .footer-sep{height:24px}.footer-contact{margin-right:140px}.form-row{grid-template-columns:1fr}section{padding:44px 0}.notebook{font-size:21px}.brands .gsi,.brands .sep{display:none}.logo img{height:38px}.badge{font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brands">
+      <a class="logo" href="#top"><img src="img/logo-omnisales.png" width="204" height="44" alt="OmniSalesPOS, parte de la suite TGT One"></a>
+      <span class="sep" aria-hidden="true"></span>
+      <img class="gsi" src="img/logo-gsi360.png" width="57" height="44" alt="GSI360">
+    </div>
+    <a class="btn" href="#contacto">Agenda tu demo</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>¿Sigues anotando todo a mano?</h1>
+      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Lo instalamos en tu local y te enseñamos a usarlo.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contacto">Agenda tu demo gratis</a>
+        <a class="btn ghost" id="wa-hero" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+      <ul class="hero-points" aria-label="Ventajas de la demo">
+        <li>Demo gratis</li>
+        <li>Sin compromiso</li>
+        <li>Con tus propios productos</li>
+      </ul>
+      <p class="note">Planes desde 0,8 UF + IVA al mes. <a href="#planes">Ver planes y precios</a></p>
+    </div>
+    <div class="duo" aria-hidden="true">
+      <div class="notebook">
+        Leche x3 … 2.850<br>
+        <s>Fiado Sra. Rosa 4.500</s> ¿?<br>
+        Caja: ¿cuadró?<br>
+        Stock pan: ni idea
+      </div>
+      <div class="ticket">
+        <h3>Así termina tu día con OmniSalesPOS</h3>
+        <div class="tot">Caja cuadrada</div>
+        <ul><li>Ventas del día a la vista</li><li>Stock siempre actualizado</li><li>Lo ves desde tu celular</li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="que-hace">
+  <div class="wrap solve">
+    <div class="solve-heading">
+      <h2>Todo tu negocio en un solo lugar</h2>
+      <p class="sub">Vendes, compras, controlas y decides desde un solo sistema.</p>
+    </div>
+    <div class="benefits">
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"></circle><circle cx="19" cy="20" r="1"></circle><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"></path><path d="M8 11h11"></path></svg></div>
+        <h3>Vende rápido</h3>
+        <p>Promociones, packs y pedidos.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"></path><path d="M3 8v9l9 5 9-5V8"></path><path d="M12 13v9"></path></svg></div>
+        <h3>Controla tu stock</h3>
+        <p>Sabes qué se está acabando.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9h.01M18 15h.01"></path></svg></div>
+        <h3>Cuadra tu caja</h3>
+        <p>Apertura y cierre sin dolor de cabeza.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9"></path><path d="M15 6h6v6"></path></svg></div>
+        <h3>Conoce tus márgenes</h3>
+        <span class="plan-tag">Plan Negocio</span>
+        <p>Cuánto ganas por producto.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></div>
+        <h3>Míralo desde tu celular</h3>
+        <p>Ventas y stock, estés donde estés.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8a15 15 0 0 1 17.5 0"></path><path d="M6 12a10 10 0 0 1 10.5-.8"></path><path d="M9.5 15.5a5 5 0 0 1 4-.7"></path><path d="m3 3 18 18"></path><path d="M12 20h.01"></path></svg></div>
+        <h3>Sin internet, sigues vendiendo</h3>
+        <p>Se sincroniza cuando vuelve.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2>Así de simple es comenzar</h2>
+    <div class="steps-grid">
+      
+      <!-- Paso 1 -->
+      <article class="step-card">
+        <div class="step-visual" aria-hidden="true">
+          <span class="step-number">1</span>
+          <svg viewBox="0 0 260 150" fill="none">
+            <circle cx="23" cy="73" r="3" fill="#17803d"/><circle cx="237" cy="49" r="4" fill="#f4b41a"/><circle cx="228" cy="111" r="3" fill="#17803d"/>
+            <rect x="39" y="27" width="177" height="94" rx="8" fill="#0d3a2a"/>
+            <rect x="46" y="34" width="163" height="79" rx="4" fill="white"/>
+            <rect x="54" y="42" width="38" height="62" rx="5" fill="#f4f8f4" stroke="#d9e5dc"/>
+            <rect x="100" y="42" width="38" height="62" rx="5" fill="#f4f8f4" stroke="#d9e5dc"/>
+            <rect x="146" y="42" width="55" height="62" rx="5" fill="#f4f8f4" stroke="#d9e5dc"/>
+            <circle cx="73" cy="55" r="8" fill="#f4b41a"/><path d="M62 76h22M62 83h18M62 94h16" stroke="#b9c9bf" stroke-width="4" stroke-linecap="round"/>
+            <path d="m108 68 10-13 10 13v13h-20V68Z" fill="#8fc7e8"/><path d="M107 84h22M107 92h15" stroke="#b9c9bf" stroke-width="4" stroke-linecap="round"/>
+            <path d="M154 51h38M154 62h31M154 73h38" stroke="#c6d8ce" stroke-width="5" stroke-linecap="round"/><rect x="153" y="84" width="40" height="12" rx="4" fill="#17803d"/>
+            <path d="M25 127h206" stroke="#b9c9bf" stroke-width="7" stroke-linecap="round"/><path d="M65 121v6M190 121v6" stroke="#0d3a2a" stroke-width="5"/>
+          </svg>
+        </div>
+        <div class="step-copy">
+          <h3>Demostración por rubro</h3>
+          <p>Presentación en vivo adaptada al sector de la empresa, usando un catálogo real y sin compromiso.</p>
+        </div>
+      </article>
+
+      <!-- Paso 2 -->
+      <article class="step-card">
+        <div class="step-visual" aria-hidden="true">
+          <span class="step-number">2</span>
+          <svg viewBox="0 0 260 150" fill="none">
+            <circle cx="26" cy="86" r="3" fill="#f4b41a"/><circle cx="231" cy="44" r="4" fill="#f4b41a"/>
+            <rect x="62" y="48" width="78" height="51" rx="5" fill="#0d3a2a"/><rect x="68" y="54" width="66" height="38" rx="2" fill="white"/>
+            <path d="M77 64h45M77 73h34M77 82h42" stroke="#b9c9bf" stroke-width="5" stroke-linecap="round"/>
+            <path d="M98 99v8M84 108h34" stroke="#516c60" stroke-width="5" stroke-linecap="round"/>
+            <rect x="34" y="111" width="192" height="11" rx="5" fill="#0d3a2a"/><rect x="44" y="123" width="174" height="23" rx="4" fill="#17803d"/>
+            <rect x="157" y="68" width="29" height="35" rx="3" fill="white" stroke="#d9e5dc"/><path d="M163 76h17M163 83h17M163 90h12" stroke="#c6d8ce" stroke-width="3" stroke-linecap="round"/>
+            <rect x="192" y="88" width="22" height="17" rx="4" fill="#315744"/><path d="M214 98h13" stroke="#d85c54" stroke-width="2"/>
+            <circle cx="218" cy="43" r="17" fill="#f4b41a"/><path d="m210 43 6 6 11-12" stroke="#0d3a2a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="step-copy">
+          <h3>Configuración y carga base</h3>
+          <p>Instalación de la plataforma y carga inicial del catálogo para empezar a operar de inmediato.*</p>
+        </div>
+      </article>
+
+      <!-- Paso 3 -->
+      <article class="step-card">
+        <div class="step-visual" aria-hidden="true">
+          <span class="step-number">3</span>
+          <svg viewBox="0 0 260 150" fill="none">
+            <circle cx="222" cy="46" r="3" fill="#f4b41a"/><circle cx="235" cy="93" r="3" fill="#17803d"/>
+            <rect x="86" y="22" width="84" height="113" rx="13" fill="#0d3a2a"/><rect x="92" y="28" width="72" height="100" rx="8" fill="white"/>
+            <path d="M103 39h48M103 48h32" stroke="#c6d8ce" stroke-width="5" stroke-linecap="round"/><rect x="102" y="57" width="32" height="12" rx="3" fill="#315744"/>
+            <path d="m139 67 7-7 6 4 9-11" stroke="#17803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="101" y="101" width="8" height="18" rx="2" fill="#b9d9c4"/><rect x="114" y="91" width="8" height="28" rx="2" fill="#8fc7a0"/><rect x="127" y="80" width="8" height="39" rx="2" fill="#49a76a"/><rect x="140" y="70" width="8" height="49" rx="2" fill="#17803d"/>
+            <rect x="23" y="51" width="61" height="27" rx="14" fill="white" stroke="#d9e5dc"/><circle cx="37" cy="64" r="9" fill="#17803d"/><path d="m33 64 3 3 5-6" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M51 61h24M51 68h16" stroke="#b9c9bf" stroke-width="3" stroke-linecap="round"/>
+            <rect x="177" y="91" width="59" height="27" rx="14" fill="white" stroke="#d9e5dc"/><circle cx="191" cy="104" r="8" fill="#f4b41a"/><path d="M204 101h23M204 108h16" stroke="#b9c9bf" stroke-width="3" stroke-linecap="round"/>
+            <ellipse cx="46" cy="116" rx="16" ry="5" fill="#f4b41a"/><path d="M30 116v8c0 3 7 6 16 6s16-3 16-6v-8" fill="#f4b41a"/><ellipse cx="46" cy="124" rx="16" ry="5" fill="#eaa400"/>
+          </svg>
+        </div>
+        <div class="step-copy">
+          <h3>Puesta en marcha asistida</h3>
+          <p>Capacitación al equipo y 2 semanas de acompañamiento directo durante la marcha blanca.**</p>
+        </div>
+      </article>
+
+    </div>
+    
+    <!-- Notas aclaratorias opcionales al pie de la sección -->
+    <div class="steps-disclaimer" style="margin-top: 1.5rem; font-size: 0.85rem; color: #666; text-align: center;">
+      <p>* Incluye hasta 100 productos en plan Esencial y 300 en Estándar. Cargas adicionales por tarifa fija.</p>
+      <p>** Soporte remoto continuo. Inducción presencial sujeta a factibilidad en RM, V y VIII Región.</p>
+    </div>
+  </div>
+</section>
+
+<section class="service">
+  <div class="wrap">
+    <div class="badge"><img src="img/logo-gsi360.png" width="72" height="56" alt="GSI360"><span>Implementación,<br>soporte y capacitación</span></div>
+    <h2>No estás solo con el sistema: partimos contigo desde el primer día</h2>
+    <p class="sub">Implementación, soporte y capacitación de GSI360 para que partas vendiendo, no peleando con la tecnología.</p>
+    <div class="service-content">
+      <img class="service-image" src="img/omnisales y gsi360.png" width="670" height="435" alt="Equipo de GSI360 muestra el sistema OmniSalesPOS en un minimarket" loading="lazy">
+      <div class="svc">
+        <div><strong>Cargamos tus productos</strong><span>Más de 100 productos cargados por ti al partir. El resto lo importas desde Excel.</span></div>
+        <div><strong>Te enseñamos en tu local</strong><span>Capacitación en terreno, con tus propios productos y tu forma de trabajar.</span></div>
+        <div><strong>Usamos tu equipo o conseguimos uno</strong><span>Computador, impresora, gaveta o lector: te asesoramos y lo dejamos conectado.</span></div>
+        <div><strong>Soporte cuando lo necesites</strong><span>Atención por ticket desde el plan base, y chat y teléfono en planes superiores.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planes">
+  <div class="wrap">
+    <h2>Elige según el tamaño de tu negocio</h2>
+    <p class="sub">Partes con lo básico y subes de plan cuando lo necesites. Valores en UF + IVA, por mes.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Emprendedor</h3>
+        <p class="for">Almacenes, botillerías y negocios que parten.</p>
+        <div class="price">0,8 UF <small>+ IVA / mes</small></div>
+        <ul>
+          <li>Punto de venta y catálogo</li>
+          <li>Stock e inventario</li>
+          <li>Apertura y cierre de caja</li>
+          <li>Clientes y proveedores</li>
+          <li>Soporte por ticket</li>
+          <li class="lim">1 caja · 500 productos · 2 usuarios</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Comercio</h3>
+        <p class="for">Minimarkets y tiendas que compran a proveedores.</p>
+        <div class="price">1,2 UF <small>+ IVA / mes</small></div>
+        <ul>
+          <li>Todo lo de Emprendedor</li>
+          <li>Órdenes de compra y recepción</li>
+          <li>Promociones, packs y cotizaciones</li>
+          <li>Apartados y báscula</li>
+          <li>Soporte por ticket y chat</li>
+          <li class="lim">2 cajas · 2.000 productos · 5 usuarios</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Negocio</h3>
+        <p class="for">Para saber cuánto ganas por cada producto.</p>
+        <div class="price">2,5 UF <small>+ IVA / mes</small></div>
+        <ul>
+          <li>Todo lo de Comercio</li>
+          <li>Márgenes y costos FIFO</li>
+          <li>Alerta cuando sube el costo</li>
+          <li>Análisis de demanda y asistencia</li>
+          <li>Soporte con teléfono y 2 h de onboarding</li>
+          <li class="lim">4 cajas · 5.000 productos · 10 usuarios</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">¿Varias sucursales? Existe el plan Cadena, consúltanos. La facturación electrónica (DTE) y la puesta en marcha se cotizan según tu negocio.</p>
+  </div>
+</section>
+
+<section class="faq" id="preguntas">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <p class="sub">Si no encuentras la tuya, escríbenos y te respondemos.</p>
+
+    <details><summary>¿Cuánto cuesta OmniSalesPOS?</summary>
+      <p>Los planes parten en 0,8 UF + IVA al mes e incluyen ventas, stock y caja. La puesta en marcha en tu local y los equipos se cotizan según lo que necesites. <a href="#contacto">Pide tu cotización.</a></p></details>
+
+    <details><summary>¿Tengo que comprar un computador especial o instalar algo?</summary>
+      <p>No. Funciona desde el navegador, en computador, tablet o celular, sin instalar nada. Si necesitas computador, impresora, gaveta o lector, te ayudamos a conseguirlo y dejarlo todo conectado.</p></details>
+
+    <details><summary>¿Funciona si se cae el internet?</summary>
+      <p>Sí. La caja tiene modo offline y sigues vendiendo con las funciones básicas. Algunas cosas, como clientes, crédito o terminales de pago, necesitan conexión. Cuando vuelve internet, todo se sincroniza.</p></details>
+
+    <details><summary>¿Ofrecen soporte técnico en línea?</summary>
+      <p>Sí. Tienes soporte por ticket en horario hábil desde el plan Emprendedor, chat desde Comercio y teléfono en Negocio. Además, te acompañamos en la puesta en marcha.</p></details>
+
+    <details><summary>¿Puedo personalizar la configuración del POS?</summary>
+      <p>Sí. Configuramos tus productos y precios, los usuarios con sus permisos (quién puede anular, dar descuentos o retirar plata de caja), impuestos, impresión y la vista de venta que más te acomode. No hacemos desarrollos a medida.</p></details>
+
+    <details><summary>¿Cargan mis productos al sistema?</summary>
+      <p>Sí. Cargamos más de 100 productos por ti al comenzar, y el resto lo puedes importar desde un archivo Excel.</p></details>
+
+    <details><summary>¿Puedo ver mi negocio desde el celular?</summary>
+      <p>Sí. Como el sistema es web, ves las ventas del día y tu stock desde el teléfono, sin estar en el local.</p></details>
+
+    <details><summary>¿Incluye boleta electrónica?</summary>
+      <p>OmniSalesPOS se integra con la facturación electrónica del SII (DTE), pero es un producto aparte. Te cotizamos según tu negocio.</p></details>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="side">
+      <h2>Agenda tu demo gratis</h2>
+      <p>Te mostramos el sistema con tus propios productos, sin compromiso. Déjanos tus datos y te escribimos por WhatsApp.</p>
+      <p><b>¿Prefieres escribirnos por WhatsApp?</b></p>
+      <a class="btn ghost" id="wa-side" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+
+    <form id="lead" novalidate>
+      <input type="hidden" name="tipo_contacto" value="Solicitud de demo">
+      <div class="hp" aria-hidden="true"><input type="text" name="web" tabindex="-1" autocomplete="off"></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nombre">Tu nombre *</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="given-name" required placeholder="Ej. Marcos">
+        </div>
+        <div class="form-group">
+          <label for="apellido">Tu apellido *</label>
+          <input type="text" id="apellido" name="apellido" autocomplete="family-name" required placeholder="Ej. Gómez">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp *</label>
+          <input type="tel" id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" required placeholder="+56 9 1234 5678">
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico (opcional)</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="ejemplo@correo.cl">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="comuna">Comuna *</label>
+          <input type="text" id="comuna" name="comuna" required placeholder="Ej. Puente Alto">
+        </div>
+        <div class="form-group">
+          <label for="nombre_negocio">Nombre de tu negocio</label>
+          <input type="text" id="nombre_negocio" name="nombre_negocio" placeholder="Ej. Panadería Antojitos">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="negocio">Tipo de negocio *</label>
+          <select id="negocio" name="negocio" required>
+          <option value="">Elige una opción</option>
+          <option value="Almacén o minimarket">Almacén o minimarket</option>
+          <option value="Botillería">Botillería</option>
+          <option value="Ferretería">Ferretería</option>
+          <option value="Farmacia">Farmacia</option>
+          <option value="Tienda de ropa o calzado">Tienda de ropa o calzado</option>
+          <option value="Mascotas">Mascotas</option>
+          <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="desafio">¿Cuál es tu mayor desafío hoy? *</label>
+          <select id="desafio" name="desafio" required>
+          <option value="">Elige una opción</option>
+          <option value="Control de inventario y stock">Control de inventario y stock</option>
+          <option value="Rapidez en la atención y ventas">Rapidez en la atención y ventas</option>
+          <option value="Emisión de boletas/facturas (SII)">Emisión de boletas/facturas (SII)</option>
+          <option value="Tener reportes de ganancias reales">Tener reportes de ganancias reales</option>
+          <option value="Vender por internet / canal digital">Vender por internet / canal digital</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="equipos">¿Qué equipos tienes hoy en tu local? *</label>
+        <select id="equipos" name="equipos" required>
+          <option value="">Elige una opción</option>
+          <option value="Computador o notebook">Computador o notebook</option>
+          <option value="Tablet">Tablet</option>
+          <option value="Solo mi celular">Solo mi celular</option>
+          <option value="Impresora, gaveta o lector">Impresora, gaveta o lector</option>
+          <option value="Nada todavía">Nada todavía</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">¿Algo más que quieras contarnos? (opcional)</label>
+        <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej. Necesito balanza digital conectada..."></textarea>
+      </div>
+
+      <button type="submit" id="send" class="btn">Quiero mi demo gratis</button>
+      <div id="msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-wrap">
+    <div class="footer-info">
+      <a class="footer-brand" href="#top" aria-label="OmniSalesPOS y GSI360, volver al inicio">
+        <img src="img/logo-omnisales.png" width="204" height="44" alt="OmniSalesPOS, parte de la suite TGT One">
+        <span class="footer-sep" aria-hidden="true"></span>
+        <img src="img/logo-gsi360.png" width="57" height="44" alt="GSI360">
+      </a>
+      <div class="footer-copy">
+        <strong>Tu negocio en un solo lugar.</strong>
+        <span>Implementación, soporte y capacitación por <b>GSI360</b>.</span>
+      </div>
+    </div>
+    <a class="footer-contact" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+/* ====== CONFIGURA AQUÍ ====== */
+var PIXEL_ID = '';        // ID del píxel de Meta de GSI360 (ej. '123456789012345')
+var WEBHOOK_URL = 'https://flow.zoho.com/946318302/flow/webhook/incoming?zapikey=1001.c7389b8b3e1bf996c9d6cabfd4453c7d.9d46800b2432397ab8f20ed1cee0858b&isdebug=false';     // Configurar un endpoint seguro de Zoho antes de activar el envío automático
+var WA_NUMBER = '56998923562';
+/* ============================ */
+
+if (PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', PIXEL_ID); fbq('track', 'PageView');
+}
+function track(ev){ try { if (window.fbq) fbq('track', ev); } catch(e){} }
+
+['wa-hero','wa-side','wa-float'].forEach(function(id){
+  var el = document.getElementById(id);
+  if (el) el.addEventListener('click', function(){ track('Contact'); });
+});
+
+var q = new URLSearchParams(location.search);
+var origen = ['utm_source','utm_medium','utm_campaign','utm_content'].map(function(k){ return q.get(k) ? k + '=' + q.get(k) : ''; }).filter(Boolean).join(' | ') || 'directo';
+
+var form = document.getElementById('lead');
+var msg = document.getElementById('msg');
+var btn = document.getElementById('send');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  if (form.elements.web.value) return; /* trampa anti-spam */
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  var d = {
+    tipo_contacto: form.elements.tipo_contacto.value,
+    fecha: new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' }),
+    nombre: form.nombre.value.trim(),
+    apellido: form.apellido.value.trim(),
+    whatsapp: form.whatsapp.value.trim(),
+    email: form.email.value.trim(),
+    comuna: form.comuna.value.trim(),
+    nombre_negocio: form.nombre_negocio.value.trim(),
+    negocio: form.negocio.value,
+    desafio: form.desafio.value,
+    equipos: form.equipos.value,
+    mensaje: form.mensaje.value.trim(),
+    origen: origen,
+    pagina: location.hostname
+  };
+
+  var negocioTxt = d.nombre_negocio || d.negocio;
+  var texto = [
+    'Hola, soy ' + d.nombre + ' ' + d.apellido + ' y quiero una demo de OmniSalesPOS.',
+    'Tipo de contacto: ' + d.tipo_contacto,
+    'WhatsApp: ' + d.whatsapp,
+    'Correo: ' + (d.email || 'No indicado'),
+    'Comuna: ' + d.comuna,
+    'Negocio: ' + negocioTxt,
+    'Desafío: ' + d.desafio,
+    'Equipos: ' + d.equipos,
+    'Mensaje: ' + (d.mensaje || 'Sin comentarios')
+  ].join('\n');
+
+  btn.disabled = true; btn.textContent = 'Enviando…';
+
+  var done = function(){
+    track('Lead');
+    msg.innerHTML = '<strong>¡Listo, ' + d.nombre + '!</strong> Recibimos tus datos y te escribimos pronto por WhatsApp. Si quieres adelantar, escríbenos ahora:<br><br><a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Continuar por WhatsApp</a>';
+    msg.className = 'ok';
+    Array.prototype.forEach.call(form.children, function(c){ if (c !== msg) c.style.display = 'none'; });
+    form.style.display = 'block';
+  };
+
+  if (!WEBHOOK_URL) {
+    msg.innerHTML = '<strong>Tu solicitud está lista, ' + d.nombre + '.</strong> Para recibirla, envíala por WhatsApp. El envío automático del formulario no está disponible por ahora.<br><br><a class="btn" id="wa-form" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Enviar solicitud por WhatsApp</a>';
+    msg.className = 'ok';
+    document.getElementById('wa-form').addEventListener('click', function(){ track('Contact'); });
+    Array.prototype.forEach.call(form.children, function(c){ if (c !== msg) c.style.display = 'none'; });
+    return;
+  }
+
+  /* Envío a Zoho Flow mediante Form data */
+  fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(d) })
+    .then(done)
+    .catch(function(){
+      btn.disabled = false; btn.textContent = 'Quiero mi demo gratis';
+      msg.textContent = 'No pudimos enviar tus datos. Intenta de nuevo o escríbenos por WhatsApp.';
+      msg.className = 'ok';
+    });
+});
+</script>
+</body>
+</html>
