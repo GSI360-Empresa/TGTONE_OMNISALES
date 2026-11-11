@@ -100,9 +100,24 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:20em}
 .setup-badge{position:absolute;top:0;right:20px;background:var(--amber);color:#4a3500;font:700 11px/1 'Instrument Sans',sans-serif;padding:5px 10px;border-radius:0 0 6px 6px;text-transform:uppercase}
 .setup-price{font:800 28px/1 'Bricolage Grotesque',sans-serif;color:var(--green);margin:10px 0 16px}
 .setup-price small{font:500 14px 'Instrument Sans',sans-serif;color:var(--mut)}
-.setup-card ul{list-style:none;font-size:15px;flex:1;margin-bottom:20px}
+.setup-card ul{list-style:none;font-size:15px;margin-bottom:16px}
 .setup-card li{padding:4px 0 4px 20px;position:relative}
 .setup-card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+
+/* Caja de Letra Chica Profesional */
+.setup-note {
+  margin-top: auto;
+  padding: 12px 14px;
+  background: #f4f6f4;
+  border: 1px solid #d9e5dc;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #55665d;
+}
+.setup-note p + p {
+  margin-top: 6px;
+}
 
 /* Estilos de Planes de Suscripción de Software (Segundo) */
 .plans{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
@@ -407,9 +422,11 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
           <li>Carga base de catálogo de hasta 100 productos.</li>
           <li>Asistencia guiada para importación de inventario restante.</li>
           <li>Capacitación asistida / remota al personal.</li>
-          <li style="color:var(--mut); font-size:13.5px; margin-top:8px; border-top:1px dashed var(--line); padding-top:8px">* Aplica a 1 sucursal. Otras sucursales se cotizan por separado.</li>
         </ul>
-        <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para almacenes pequeños y botillerías que inician rápido.</p>
+        <div class="setup-note">
+          <p>* Aplica a 1 sucursal. Otras sucursales se cotizan por separado.</p>
+        </div>
+        <p style="font-size:13.5px; color:var(--mut); margin-top:12px">Ideal para almacenes pequeños y botillerías que inician rápido.</p>
       </div>
 
       <div class="setup-card pop">
@@ -419,15 +436,15 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         <ul>
           <li>Configuración avanzada de caja y perfiles de usuario.</li>
           <li>Carga base de catálogo de hasta 300 productos.</li>
-          <li>Instalación y conexión de equipos en el mesón (PC, lector, impresora, gaveta o báscula).*</li>
-          <li><strong>Capacitación en terreno</strong> con tus propios productos y procesos.*</li>
+          <li>Instalación y conexión de equipos en el mesón (PC, lector, impresora, gaveta o báscula).</li>
+          <li><strong>Capacitación en terreno</strong> con tus propios productos y procesos.</li>
           <li>2 semanas de acompañamiento prioritario en marcha blanca.</li>
-          <li style="color:var(--mut); font-size:13.5px; margin-top:8px; border-top:1px dashed var(--line); padding-top:8px">
-            * <strong>Presencialidad sujeta a factibilidad técnica y geográfica</strong> (RM, Valparaíso y Concepción). En caso de no ser factible la visita presencial, la instalación de equipos y capacitación se realizan con <strong>asesoría remota guiada paso a paso</strong>.<br>
-            * Aplica a 1 sucursal (sucursales adicionales conversables por separado). Kits para inventario total o catálogos masivos sujetos a evaluación.
-          </li>
         </ul>
-        <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para minimarkets, ferreterías y comercios establecidos.</p>
+        <div class="setup-note">
+          <p>* <strong>Presencialidad sujeta a factibilidad técnica y geográfica</strong> (RM, Valparaíso y Concepción). Si no es factible la visita, la instalación y capacitación se realizan con <strong>asesoría remota guiada paso a paso</strong>.</p>
+          <p>* Aplica a 1 sucursal (sucursales adicionales conversables por separado). Kits para inventario total o catálogos masivos sujetos a evaluación.</p>
+        </div>
+        <p style="font-size:13.5px; color:var(--mut); margin-top:12px">Ideal para minimarkets, ferreterías y comercios establecidos.</p>
       </div>
     </div>
 
@@ -509,7 +526,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     <div class="sercotec-box">
       <div>
         <h3>¿Quieres postular a fondos de SERCOTEC o CORFO con nuestra asesoría experta?</h3>
-        <p>Aumenta considerablemente tus probabilidades de adjudicación con una postulación guiada y profesional. Nuestros planes y servicios de puesta en marcha se adaptan perfectamente a los requerimientos de estos fondos concursables.</p>
+        <p>Aumenta considerablemente tus probabilidades de adjudicación con una postulación guiada y profesional. Nuestros plans y servicios de puesta en marcha se adaptan perfectamente a los requerimientos de estos fondos concursables.</p>
       </div>
       <a class="btn" style="background:#fff;color:var(--deep);border-color:#fff;white-space:nowrap" href="#contacto">Asesorarme para Fondos</a>
     </div>
@@ -744,7 +761,7 @@ form.addEventListener('submit', function(e){
   if (!WEBHOOK_URL) {
     msg.innerHTML = '<strong>Tu solicitud está lista, ' + d.nombre + '.</strong> Para recibir atención inmediata, envíala directamente a nuestro WhatsApp:<br><br><a class="btn" id="wa-form" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Enviar por WhatsApp</a>';
     msg.className = 'ok';
-    document.getElementById('wa-form').getElementById('click', function(){ track('Contact'); });
+    document.getElementById('wa-form').addEventListener('click', function(){ track('Contact'); });
     Array.prototype.forEach.call(form.children, function(c){ if (c !== msg) c.style.display = 'none'; });
     return;
   }
