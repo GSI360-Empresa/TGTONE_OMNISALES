@@ -55,18 +55,23 @@ section{padding:76px 0}
 section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:18em}
 .sub{color:var(--mut);max-width:38em;margin-bottom:40px}
 
-.solve{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.solve ul{list-style:none;display:grid;gap:22px}
-.solve li{border-top:2px solid var(--green);padding-top:12px}
-.solve li strong{display:block;font:700 20px 'Bricolage Grotesque',sans-serif;margin-bottom:2px}
-.solve li span{color:var(--mut);font-size:16px}
-.solve img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 12px 30px rgba(13,58,42,.12)}
-.offline{margin-top:20px;padding:14px 16px;background:#eaf5ee;border-radius:10px;font-size:16px}
+.solve{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+.solve-heading h2{margin-bottom:10px}
+.solve-heading .sub{margin-bottom:0}
+.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.benefit{padding:18px 20px;background:#f4f8f4;border:1px solid var(--line);border-radius:16px}
+.benefit-icon{display:grid;place-items:center;width:46px;height:46px;margin-bottom:12px;border-radius:12px;background:var(--green);color:#fff}
+.benefit-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.benefit h3{font-size:18px;line-height:1.2;letter-spacing:0;margin-bottom:6px}
+.benefit p{color:var(--mut);font-size:15.5px;line-height:1.4}
+.benefit .plan-tag{display:inline-block;margin:0 0 6px;padding:2px 9px;border-radius:999px;background:#fff0c2;color:#705000;font-size:12px;font-weight:600;line-height:1.4}
 
 .service{background:var(--deep);color:#fff}
 .service .sub{color:#b9d3c4}
 .service h2{max-width:20em}
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.service-content{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:center}
+.service-image{display:block;width:100%;height:auto;aspect-ratio:670/435;object-fit:cover;border:1px solid rgba(255,255,255,.2);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .svc div{border-left:3px solid var(--amber);padding-left:16px}
 .svc strong{display:block;font:700 19px 'Bricolage Grotesque',sans-serif;margin-bottom:6px}
 .svc span{color:#cfe3d7;font-size:15.5px}
@@ -116,8 +121,9 @@ footer b{color:#fff}
 .wa-float{position:fixed;right:18px;bottom:18px;z-index:20;background:#25d366;color:#06361b;font:700 15px 'Instrument Sans',sans-serif;padding:14px 18px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 
 @media(max-width:860px){
-  .hero .wrap,.solve,.contact .wrap{grid-template-columns:1fr;gap:36px}
-  .svc{grid-template-columns:1fr 1fr}
+  .hero .wrap,.solve,.contact .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .solve{gap:24px}
+  .service-content{grid-template-columns:1fr;gap:28px}
   .plans{grid-template-columns:1fr}
   .plan{border-right:0;border-bottom:1px solid var(--line)}
   .plan:last-child{border-bottom:0}
@@ -126,7 +132,7 @@ footer b{color:#fff}
   form{padding:22px}
   section{padding:56px 0}
 }
-@media(max-width:520px){.svc{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.notebook{font-size:21px}.brands .gsi,.brands .sep{display:none}.logo img{height:38px}.badge{font-size:15px}}
+@media(max-width:520px){.svc,.benefits{grid-template-columns:minmax(0,1fr)}section{padding:44px 0}.form-row{grid-template-columns:1fr}.notebook{font-size:21px}.brands .gsi,.brands .sep{display:none}.logo img{height:38px}.badge{font-size:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -173,19 +179,43 @@ footer b{color:#fff}
 
 <section id="que-hace">
   <div class="wrap solve">
-    <div>
+    <div class="solve-heading">
       <h2>Todo tu negocio en un solo lugar</h2>
-      <p class="sub">OmniSalesPOS es más que un punto de venta: es el sistema donde vendes, compras, controlas y decides.</p>
-      <ul>
-        <li><strong>Vende rápido</strong><span>Cobra en mostrador, con promociones y packs. También puedes tomar pedidos y hacer cotizaciones.</span></li>
-        <li><strong>Controla tu inventario</strong><span>Sabes qué tienes en stock y qué se está acabando, y gestionas tus compras a proveedores.</span></li>
-        <li><strong>Cuadra tu caja</strong><span>Apertura, cierre y diferencias sin dolor de cabeza.</span></li>
-        <li><strong>Conoce tus márgenes</strong><span>Mira cuánto ganas realmente en cada producto (plan Negocio).</span></li>
-        <li><strong>Míralo desde tu celular</strong><span>Revisa ventas y stock sin estar en el local.</span></li>
-      </ul>
-      <p class="offline"><b>Sigue funcionando incluso sin internet.</b> La caja vende en modo offline y sincroniza cuando vuelve la conexión.</p>
+      <p class="sub">Vendes, compras, controlas y decides desde un solo sistema.</p>
     </div>
-    <img src="img/omnisales y gsi360.png" width="670" height="435" alt="Pantalla de venta de OmniSalesPOS con productos, carrito y total" loading="lazy">
+    <div class="benefits">
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"></circle><circle cx="19" cy="20" r="1"></circle><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"></path><path d="M8 11h11"></path></svg></div>
+        <h3>Vende rápido</h3>
+        <p>Promociones, packs y pedidos.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"></path><path d="M3 8v9l9 5 9-5V8"></path><path d="M12 13v9"></path></svg></div>
+        <h3>Controla tu stock</h3>
+        <p>Sabes qué se está acabando.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9h.01M18 15h.01"></path></svg></div>
+        <h3>Cuadra tu caja</h3>
+        <p>Apertura y cierre sin dolor de cabeza.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9"></path><path d="M15 6h6v6"></path></svg></div>
+        <h3>Conoce tus márgenes</h3>
+        <span class="plan-tag">Plan Negocio</span>
+        <p>Cuánto ganas por producto.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></div>
+        <h3>Míralo desde tu celular</h3>
+        <p>Ventas y stock, estés donde estés.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8a15 15 0 0 1 17.5 0"></path><path d="M6 12a10 10 0 0 1 10.5-.8"></path><path d="M9.5 15.5a5 5 0 0 1 4-.7"></path><path d="m3 3 18 18"></path><path d="M12 20h.01"></path></svg></div>
+        <h3>Sin internet, sigues vendiendo</h3>
+        <p>Se sincroniza cuando vuelve.</p>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -194,11 +224,14 @@ footer b{color:#fff}
     <div class="badge"><img src="img/logo-gsi360.png" width="72" height="56" alt="GSI360"><span>Implementación,<br>soporte y capacitación</span></div>
     <h2>No estás solo con el sistema: partimos contigo desde el primer día</h2>
     <p class="sub">Implementación, soporte y capacitación de GSI360 para que partas vendiendo, no peleando con la tecnología.</p>
-    <div class="svc">
-      <div><strong>Cargamos tus productos</strong><span>Más de 100 productos cargados por ti al partir. El resto lo importas desde Excel.</span></div>
-      <div><strong>Te enseñamos en tu local</strong><span>Capacitación en terreno, con tus propios productos y tu forma de trabajar.</span></div>
-      <div><strong>Usamos tu equipo o conseguimos uno</strong><span>Computador, impresora, gaveta o lector: te asesoramos y lo dejamos conectado.</span></div>
-      <div><strong>Soporte cuando lo necesites</strong><span>Atención por ticket desde el plan base, y chat y teléfono en planes superiores.</span></div>
+    <div class="service-content">
+      <img class="service-image" src="img/omnisales y gsi360.png" width="670" height="435" alt="Equipo de GSI360 muestra el sistema OmniSalesPOS en un minimarket" loading="lazy">
+      <div class="svc">
+        <div><strong>Cargamos tus productos</strong><span>Más de 100 productos cargados por ti al partir. El resto lo importas desde Excel.</span></div>
+        <div><strong>Te enseñamos en tu local</strong><span>Capacitación en terreno, con tus propios productos y tu forma de trabajar.</span></div>
+        <div><strong>Usamos tu equipo o conseguimos uno</strong><span>Computador, impresora, gaveta o lector: te asesoramos y lo dejamos conectado.</span></div>
+        <div><strong>Soporte cuando lo necesites</strong><span>Atención por ticket desde el plan base, y chat y teléfono en planes superiores.</span></div>
+      </div>
     </div>
   </div>
 </section>
