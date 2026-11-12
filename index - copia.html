@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OmniSalesPOS · Punto de venta y control de tu negocio | GSI360</title>
-<meta name="description" content="Cobra, controla tu stock, cuadra tu caja y conoce tus márgenes en un solo sistema. Te lo dejamos funcionando en tu local. Agenda tu demo gratis.">
+<meta name="description" content="Cobra, emite boletas/facturas SII, controla tu stock, cuadra tu caja y conoce tus márgenes en un solo sistema. Te lo dejamos funcionando en tu local. Agenda tu demo gratis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Instrument Sans',system-ui,sans-serif;color:var(--ink);background:var(--white);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:'Bricolage Grotesque','Instrument Sans',system-ui,sans-serif;line-height:1.08;letter-spacing:-.02em;font-weight:800}
 a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 :focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
 .btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 'Instrument Sans',sans-serif;padding:16px 24px;border-radius:10px;border:2px solid var(--green);background:var(--green);color:#fff;text-decoration:none;cursor:pointer;transition:background .15s}
 .btn:hover{background:var(--green-d)}
@@ -51,24 +51,25 @@ header .btn{padding:11px 18px;font-size:15px}
 .ticket{position:absolute;right:0;bottom:0;width:66%;background:#fff;border:2px solid var(--green);border-radius:14px;padding:20px 20px 18px;box-shadow:0 14px 30px rgba(13,58,42,.18);transform:rotate(1.5deg)}
 .ticket h3{font-size:15px;color:var(--mut);font-weight:600;font-family:'Instrument Sans',sans-serif;letter-spacing:0;margin-bottom:6px}
 .ticket .tot{font:800 34px/1 'Bricolage Grotesque',sans-serif;color:var(--green);margin-bottom:12px}
-.ticket ul{list-style:none;font-size:15px}
+.ticket ul{list-style:none;font-size:15.5px}
 .ticket li{display:flex;gap:8px;padding:3px 0}
 .ticket li::before{content:"✓";color:var(--green);font-weight:700}
 
 section{padding:76px 0}
-section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:18em}
+section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:20em}
 .sub{color:var(--mut);max-width:38em;margin-bottom:40px}
 
 .solve{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
 .solve-heading h2{margin-bottom:10px}
 .solve-heading .sub{margin-bottom:0}
-.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
-.benefit{padding:18px 20px;background:#f4f8f4;border:1px solid var(--line);border-radius:16px}
+.benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.benefit{padding:20px;background:#f4f8f4;border:1px solid var(--line);border-radius:16px}
 .benefit-icon{display:grid;place-items:center;width:46px;height:46px;margin-bottom:12px;border-radius:12px;background:var(--green);color:#fff}
 .benefit-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .benefit h3{font-size:18px;line-height:1.2;letter-spacing:0;margin-bottom:6px}
-.benefit p{color:var(--mut);font-size:15.5px;line-height:1.4}
+.benefit p{color:var(--mut);font-size:15px;line-height:1.4}
 .benefit .plan-tag{display:inline-block;margin:0 0 6px;padding:2px 9px;border-radius:999px;background:#fff0c2;color:#705000;font-size:12px;font-weight:600;line-height:1.4}
+.benefit .plan-tag.teal{background:#d1f2eb;color:#0e6251}
 
 .steps{background:var(--bg)}
 .steps h2{margin-bottom:28px}
@@ -84,31 +85,61 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:18em}
 .service{background:var(--deep);color:#fff}
 .service .sub{color:#b9d3c4}
 .service h2{max-width:20em}
-.service-content{
-  display: grid;
-  grid-template-columns: 0.8fr 1.4fr; /* Da más espacio a la derecha para que no se vea apretado */
-  gap: 40px;
-  align-items: center;
-}
+.service-content{display:grid;grid-template-columns:0.8fr 1.4fr;gap:40px;align-items:center}
 .service-image{display:block;width:100%;height:auto;aspect-ratio:670/435;object-fit:cover;border:1px solid rgba(255,255,255,.2);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
 .svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .svc div{border-left:3px solid var(--amber);padding-left:16px}
 .svc strong{display:block;font:700 19px 'Bricolage Grotesque',sans-serif;margin-bottom:6px}
 .svc span{color:#cfe3d7;font-size:15.5px}
 
-.plans{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.plan{padding:28px 24px;border-right:1px solid var(--line)}
+/* Estilos de Instalación / Puesta en Marcha GSI360 (Primero) */
+.setup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px;margin-bottom:48px}
+.setup-card{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 24px rgba(13,58,42,.04)}
+.setup-card.pop{border:2px solid var(--amber);background:#fdfcf7}
+.setup-card h4{font:700 20px 'Bricolage Grotesque',sans-serif;color:var(--deep);margin-bottom:4px}
+.setup-badge{position:absolute;top:0;right:20px;background:var(--amber);color:#4a3500;font:700 11px/1 'Instrument Sans',sans-serif;padding:5px 10px;border-radius:0 0 6px 6px;text-transform:uppercase}
+.setup-price{font:800 28px/1 'Bricolage Grotesque',sans-serif;color:var(--green);margin:10px 0 16px}
+.setup-price small{font:500 14px 'Instrument Sans',sans-serif;color:var(--mut)}
+.setup-card ul{list-style:none;font-size:15px;margin-bottom:16px}
+.setup-card li{padding:4px 0 4px 20px;position:relative}
+.setup-card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+
+/* Caja de Letra Chica Profesional */
+.setup-note {
+  margin-top: auto;
+  padding: 12px 14px;
+  background: #f4f6f4;
+  border: 1px solid #d9e5dc;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #55665d;
+}
+.setup-note p + p {
+  margin-top: 6px;
+}
+
+/* Estilos de Planes de Suscripción de Software (Segundo) */
+.plans{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.plan{padding:26px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;position:relative}
 .plan:last-child{border-right:0}
-.plan h3{font-size:24px}
-.plan .for{color:var(--mut);font-size:15px;margin:4px 0 14px;min-height:46px}
-.plan .price{font:800 34px/1 'Bricolage Grotesque',sans-serif;color:var(--green)}
+.plan.pop{background:#fdfcf7;border:2px solid var(--amber);margin:-1px;border-radius:12px;z-index:2}
+.pop-badge{position:absolute;top:0;right:16px;background:var(--amber);color:#4a3500;font:700 11px/1 'Instrument Sans',sans-serif;padding:5px 10px;border-radius:0 0 6px 6px;text-transform:uppercase}
+.plan h3{font-size:22px}
+.plan .for{color:var(--mut);font-size:14px;margin:4px 0 14px;min-height:42px}
+.plan .price{font:800 32px/1 'Bricolage Grotesque',sans-serif;color:var(--green)}
 .plan .price small{font:500 14px 'Instrument Sans',sans-serif;color:var(--mut)}
-.plan ul{list-style:none;margin-top:16px;font-size:15.5px}
-.plan li{padding:5px 0 5px 22px;position:relative}
+.plan .annual-badge{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:600;color:var(--green);background:#e6f4ea;padding:3px 8px;border-radius:4px}
+.plan ul{list-style:none;margin-top:16px;font-size:14.5px;flex:1}
+.plan li{padding:4px 0 4px 20px;position:relative}
 .plan li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
-.plan li.lim{color:var(--mut);padding-left:0;margin-top:8px;border-top:1px dashed var(--line);padding-top:12px}
+.plan li.lim{color:var(--mut);padding-left:0;margin-top:10px;border-top:1px dashed var(--line);padding-top:10px;font-size:13.5px;font-weight:500}
 .plan li.lim::before{content:""}
-.fine{margin-top:16px;font-size:14.5px;color:var(--mut)}
+.fine{margin-top:20px;font-size:14.5px;color:var(--mut);text-align:center}
+
+.sercotec-box{margin-top:36px;background:linear-gradient(135deg,#17803d,#0d3a2a);color:#fff;border-radius:16px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.sercotec-box h3{font-size:22px;color:#fff;margin-bottom:4px}
+.sercotec-box p{color:#d1e8da;font-size:15.5px}
 
 .faq{background:var(--bg)}
 details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
@@ -148,20 +179,42 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
 .footer-contact:hover{background:#1fc15d}
 .wa-float{position:fixed;right:18px;bottom:18px;z-index:20;background:#25d366;color:#06361b;font:700 15px 'Instrument Sans',sans-serif;padding:14px 18px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 
+@media(max-width:980px){
+  .plans{grid-template-columns:repeat(2,1fr)}
+  .plan{border-bottom:1px solid var(--line)}
+  .plan:nth-child(2){border-right:0}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+  .setup-grid{grid-template-columns:1fr}
+}
 @media(max-width:860px){
   .hero .wrap,.solve,.contact .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
   .solve{gap:24px}
   .steps-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .service-content{grid-template-columns:1fr;gap:28px}
-  .plans{grid-template-columns:1fr}
-  .plan{border-right:0;border-bottom:1px solid var(--line)}
-  .plan:last-child{border-bottom:0}
-  .plan .for{min-height:0}
   .duo{height:360px}
   form{padding:22px}
   section{padding:56px 0}
+  .sercotec-box{flex-direction:column;align-items:flex-start}
 }
-@media(max-width:520px){.svc,.benefits,.steps-grid{grid-template-columns:minmax(0,1fr)}.step-visual{height:156px}.hero-points{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}footer{padding:24px 0 76px}footer .footer-wrap{align-items:flex-start;flex-direction:column;gap:16px}.footer-brand{gap:10px;padding:8px 12px}.footer-brand img{height:32px}.footer-brand .footer-sep{height:24px}.footer-contact{margin-right:140px}.form-row{grid-template-columns:1fr}section{padding:44px 0}.notebook{font-size:21px}.brands .gsi,.brands .sep{display:none}.logo img{height:38px}.badge{font-size:15px}}
+@media(max-width:560px){
+  .plans{grid-template-columns:1fr}
+  .plan{border-right:0}
+  .svc,.benefits,.steps-grid{grid-template-columns:minmax(0,1fr)}
+  .step-visual{height:156px}
+  .hero-points{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}
+  footer{padding:24px 0 76px}
+  footer .footer-wrap{align-items:flex-start;flex-direction:column;gap:16px}
+  .footer-brand{gap:10px;padding:8px 12px}
+  .footer-brand img{height:32px}
+  .footer-brand .footer-sep{height:24px}
+  .footer-contact{margin-right:140px}
+  .form-row{grid-template-columns:1fr}
+  section{padding:44px 0}
+  .notebook{font-size:21px}
+  .brands .gsi,.brands .sep{display:none}
+  .logo img{height:38px}
+  .badge{font-size:15px}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -183,17 +236,17 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap">
     <div>
       <h1>¿Sigues anotando todo a mano?</h1>
-      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Lo instalamos en tu local y te enseñamos a usarlo.</p>
+      <p class="lead">Con <span class="hero-brand">OmniSalesPOS</span> cobras, emites boletas y facturas electrónicas SII, controlas tu stock, cuadras tu caja y conoces tus márgenes en un solo sistema. Lo instalamos en tu local y te acompañamos paso a paso.</p>
       <div class="cta-row">
         <a class="btn" href="#contacto">Agenda tu demo gratis</a>
         <a class="btn ghost" id="wa-hero" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
       </div>
       <ul class="hero-points" aria-label="Ventajas de la demo">
-        <li>Demo gratis</li>
-        <li>Sin compromiso</li>
+        <li>Facturación SII desde plan básico</li>
+        <li>Demo sin compromiso en tu local</li>
         <li>Con tus propios productos</li>
       </ul>
-      <p class="note">Planes desde 0,8 UF + IVA al mes. <a href="#planes">Ver planes y precios</a></p>
+      <p class="note">Instalación desde 1,5 UF. <a href="#planes">Ver servicios y planes</a></p>
     </div>
     <div class="duo" aria-hidden="true">
       <div class="notebook">
@@ -205,7 +258,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <div class="ticket">
         <h3>Así termina tu día con OmniSalesPOS</h3>
         <div class="tot">Caja cuadrada</div>
-        <ul><li>Ventas del día a la vista</li><li>Stock siempre actualizado</li><li>Lo ves desde tu celular</li></ul>
+        <ul><li>Boletas electrónicas automáticas</li><li>Ventas del día a la vista</li><li>Stock siempre actualizado</li><li>Lo ves desde tu celular</li></ul>
       </div>
     </div>
   </div>
@@ -215,39 +268,39 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap solve">
     <div class="solve-heading">
       <h2>Todo tu negocio en un solo lugar</h2>
-      <p class="sub">Vendes, compras, controlas y decides desde un solo sistema.</p>
+      <p class="sub">Vendes, compras, emites documentos SII, controlas y decides desde una sola plataforma web.</p>
     </div>
     <div class="benefits">
       <article class="benefit">
+        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
+        <h3>Facturación SII Incluida</h3>
+        <p>Emite boletas y facturas electrónicas oficiales de forma nativa desde el plan más básico.</p>
+      </article>
+      <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"></circle><circle cx="19" cy="20" r="1"></circle><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"></path><path d="M8 11h11"></path></svg></div>
-        <h3>Vende rápido</h3>
-        <p>Promociones, packs y pedidos.</p>
+        <h3>Venta rápida y mostrador</h3>
+        <p>Promociones, packs, preventa, envases retornables y básculas conectadas.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"></path><path d="M3 8v9l9 5 9-5V8"></path><path d="M12 13v9"></path></svg></div>
         <h3>Controla tu stock</h3>
-        <p>Sabes qué se está acabando.</p>
+        <p>Inventario al día con sugerencia automática de reposición e historial de costos.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9h.01M18 15h.01"></path></svg></div>
         <h3>Cuadra tu caja</h3>
-        <p>Apertura y cierre sin dolor de cabeza.</p>
+        <p>Apertura y cierre seguro mediante arqueo a ciegas por denominación de billetes.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9"></path><path d="M15 6h6v6"></path></svg></div>
-        <h3>Conoce tus márgenes</h3>
-        <span class="plan-tag">Plan Negocio</span>
-        <p>Cuánto ganas por producto.</p>
+        <h3>Márgenes FIFO reales</h3>
+        <span class="plan-tag">Desde Plan Negocio</span>
+        <p>Calcula ganancia bruta real por producto y avisa si tu proveedor sube precios.</p>
       </article>
       <article class="benefit">
         <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></div>
         <h3>Míralo desde tu celular</h3>
-        <p>Ventas y stock, estés donde estés.</p>
-      </article>
-      <article class="benefit">
-        <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8a15 15 0 0 1 17.5 0"></path><path d="M6 12a10 10 0 0 1 10.5-.8"></path><path d="M9.5 15.5a5 5 0 0 1 4-.7"></path><path d="m3 3 18 18"></path><path d="M12 20h.01"></path></svg></div>
-        <h3>Sin internet, sigues vendiendo</h3>
-        <p>Se sincroniza cuando vuelve.</p>
+        <p>Ventas del día, cajas y stock en tiempo real estés donde estés.</p>
       </article>
     </div>
   </div>
@@ -277,7 +330,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         </div>
         <div class="step-copy">
           <h3>Demostración por rubro</h3>
-          <p>Presentación en vivo adaptada al sector de la empresa, usando un catálogo real y sin compromiso.</p>
+          <p>Presentación en vivo adaptada a tu sector (minimarket, botillería, ferretería, farmacia), usando un catálogo real y sin compromiso.</p>
         </div>
       </article>
 
@@ -298,7 +351,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         </div>
         <div class="step-copy">
           <h3>Configuración y carga base</h3>
-          <p>Instalación de la plataforma y carga inicial del catálogo para empezar a operar de inmediato.*</p>
+          <p>Instalación de la plataforma, conexión con el SII y carga inicial de tus productos para empezar a operar.*</p>
         </div>
       </article>
 
@@ -319,16 +372,15 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         </div>
         <div class="step-copy">
           <h3>Puesta en marcha asistida</h3>
-          <p>Capacitación al equipo y 2 semanas de acompañamiento directo durante la marcha blanca.**</p>
+          <p>Capacitación presencial al dueño y cajeros, con soporte continuo para operar con total confianza desde el primer día.**</p>
         </div>
       </article>
 
     </div>
     
-    <!-- Notas aclaratorias al pie de la sección -->
     <div class="steps-disclaimer" style="margin-top: 1.5rem; font-size: 0.85rem; color: #666; text-align: center;">
-      <p>* Incluye hasta 100 productos en plan Esencial y 200 en Estándar. Cargas adicionales por tarifa fija.</p>
-      <p>** Soporte remoto continuo. Inducción presencial sujeta a factibilidad en RM, V y VIII Región.</p>
+      <p>* Incluye hasta 100 productos en servicio Esencial y 300 en Pro. Cargas adicionales por planilla Excel.</p>
+      <p>** Soporte remoto continuo. Inducción presencial sujeta a factibilidad en RM, Valparaíso y Concepción.</p>
     </div>
   </div>
 </section>
@@ -342,92 +394,170 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     <div class="service-content">
       <img class="service-image" src="img/omnisales y gsi360.png" width="670" height="435" alt="Equipo de GSI360 muestra el sistema OmniSalesPOS en un minimarket" loading="lazy">
       <div class="svc">
-        <div><strong>Carga inicial de catálogo</strong><span>Hasta 100 o 200 productos listos al partir. Asistencia guiada para incorporar el resto del inventario.</span></div>
-        <div><strong>Capacitación en el local</strong><span>Inducción operativa con los productos del negocio (sujeto a factibilidad física en Santiago, Valparaíso, Viña del Mar, Quilpué y Concepción).</span></div>
-        <div><strong>Compatibilidad de equipos</strong><span>Computador, impresora, gaveta o lector: asesoría técnica integral y conexión completa de dispositivos.</span></div>
-        <div><strong>Soporte permanente</strong><span>Atención por ticket desde el plan base, con canales de chat y teléfono habilitados en categorías superiores.</span></div>
+        <div><strong>Carga inicial de catálogo</strong><span>Cargamos tus primeros productos iniciales y te ayudamos y enseñamos cómo migrar el resto de tu inventario de forma simple.</span></div>
+        <div><strong>Capacitación en tu local</strong><span>Acompañamiento presencial, trabajando directamente con tus propios productos y tu forma habitual de operar *(sujeto a factibilidad en tu zona)*.</span></div>
+        <div><strong>Compatibilidad de hardware</strong><span>Conectamos tu computador, tablet, impresora térmica, báscula o lector de códigos de barra sin enredos.</span></div>
+        <div><strong>Soporte local continuo</strong><span>Atención por ticket desde el plan Emprendedor, sumando canales de chat y teléfono prioritario en planes superiores.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="planes">
+<!-- SECCIÓN DE PRECIOS: 1. INSTALACIÓN (PRIMERO) Y 2. SUSCRIPCIÓN DE SOFTWARE (SEGUNDO) -->
+<section id="planes" style="background:var(--bg)">
   <div class="wrap">
-    <h2>Elige según el tamaño de tu negocio</h2>
-    <p class="sub">Partes con lo básico y subes de plan cuando lo necesites. Valores en UF + IVA, por mes.</p>
-    <div class="plans">
+    <h2>Inversión transparente para tu negocio</h2>
+    <p class="sub">Conoce los costos de instalación inicial (pago único por servicio local GSI360) y los planes de suscripción mensual del sistema (OmniSalesPOS).</p>
+    
+ <!-- PASO 1: SERVICIO DE INSTALACIÓN (PRIMERO) -->
+    <h3 style="font-size:24px; margin-bottom:8px; color:var(--deep)">1. Servicio de Instalación y Puesta en Marcha <span style="font-size:16px; font-weight:500; color:var(--mut)">(Se paga por única vez)</span></h3>
+    <p style="color:var(--mut); font-size:15.5px; margin-bottom:24px">Elige el nivel de acompañamiento técnico y presencial que necesitas para dejar tu local operando desde el día uno:</p>
+    
+    <div class="setup-grid">
+      <div class="setup-card">
+        <h4>Servicio Esencial</h4>
+        <div class="setup-price">1,5 UF <small>+ IVA (Único pago)</small></div>
+        <ul>
+          <li>Configuración inicial de cuenta y parámetros SII.</li>
+          <li>Carga base de catálogo de hasta 100 productos.</li>
+          <li>Asistencia guiada para importación de inventario restante.</li>
+          <li>Capacitación asistida / remota al personal.</li>
+        </ul>
+        <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para almacenes pequeños y botillerías que inician rápido.</p>
+      </div>
+
+      <div class="setup-card pop">
+        <span class="setup-badge">Recomendado</span>
+        <h4>Servicio Pro (Llave en Mano)</h4>
+        <div class="setup-price">3,0 UF <small>+ IVA (Único pago)</small></div>
+        <ul>
+          <li>Configuración avanzada de caja y perfiles de usuario.</li>
+          <li>Carga base de catálogo de hasta 300 productos.</li>
+          <li>Instalación y conexión de equipos en el mesón (PC, lector, impresora, gaveta o báscula).</li>
+          <li><strong>Capacitación en terreno</strong> con tus propios productos y procesos.</li>
+          <li>2 semanas de acompañamiento prioritario en marcha blanca.</li>
+        </ul>
+        <p style="font-size:13.5px; color:var(--mut); margin-top:auto">Ideal para minimarkets, ferreterías y comercios establecidos.</p>
+      </div>
+    </div>
+
+    <!-- NOTA GENERAL PARA AMBOS SERVICIOS DE INSTALACIÓN -->
+    <div style="margin-top:-24px; margin-bottom:36px; padding:16px 20px; background:#f4f6f4; border:1px solid #d9e5dc; border-radius:10px; font-size:13.5px; color:#55665d; display:flex; flex-direction:column; gap:6px;">
+      <p>* <strong>Presencialidad sujeta a factibilidad técnica y geográfica</strong> (RM, Valparaíso y Concepción). Si no es factible la visita, la instalación y capacitación se realizan con <strong>asesoría remota guiada paso a paso</strong> para cualquiera de los servicios.</p>
+      <p>* Los valores y servicios aplican a <strong>1 sucursal</strong> (sucursales adicionales se cotizan por separado y de forma conversable).</p>
+      <p>* Los kits para inventario total o catálogos masivos están sujetos a evaluación previa según el tamaño del catálogo.</p>
+    </div>	
+	
+	
+    <!-- PASO 2: PLANES DE SUSCRIPCIÓN DE SOFTWARE (SEGUNDO) -->
+    <h3 style="font-size:24px; margin-top:40px; margin-bottom:8px; color:var(--deep)">2. Planes de Suscripción del Software <span style="font-size:16px; font-weight:500; color:var(--mut)">(Mensual o Anual)</span></h3>
+    <p style="color:var(--mut); font-size:15.5px; margin-bottom:24px">Elige el plan de OmniSalesPOS según el tamaño de tu operación (con facturación electrónica DTE incluida desde el plan base):</p>
+    
+    <div class="plans" style="margin-bottom:36px;">
       <div class="plan">
         <h3>Emprendedor</h3>
-        <p class="for">Almacenes, botillerías y negocios que parten.</p>
+        <p class="for">Almacenes, botillerías y microcomercios que inician su digitalización.</p>
         <div class="price">0,8 UF <small>+ IVA / mes</small></div>
+        <span class="annual-badge">Anual: 1 Mes Gratis</span>
         <ul>
-          <li>Punto de venta y catálogo</li>
-          <li>Stock e inventario</li>
-          <li>Apertura y cierre de caja</li>
+          <li>Facturación electrónica SII (DTE)</li>
+          <li>Punto de venta y catálogo base</li>
+          <li>Stock, inventario y ajustes</li>
+          <li>Apertura y arqueo de caja</li>
           <li>Clientes y proveedores</li>
-          <li>Soporte por ticket</li>
-          <li class="lim">1 caja · 500 productos · 2 usuarios</li>
+          <li>Soporte por ticket horario hábil</li>
+          <li class="lim">1 caja · 500 productos · 2 usuarios · 1 sucursal</li>
         </ul>
       </div>
+
       <div class="plan">
         <h3>Comercio</h3>
-        <p class="for">Minimarkets y tiendas que compran a proveedores.</p>
+        <p class="for">Minimarkets activos, tiendas de ropa, mascotas y ferreterías pequeñas.</p>
         <div class="price">1,2 UF <small>+ IVA / mes</small></div>
+        <span class="annual-badge">Anual: 1 Mes Gratis</span>
         <ul>
           <li>Todo lo de Emprendedor</li>
-          <li>Órdenes de compra y recepción</li>
-          <li>Promociones, packs y cotizaciones</li>
-          <li>Apartados y báscula</li>
+          <li>Órdenes de Compra y Recepción</li>
+          <li>Pagos a proveedores y Kardex</li>
+          <li>Promociones, packs y envases</li>
+          <li>Apartados, cotizaciones y báscula</li>
           <li>Soporte por ticket y chat</li>
-          <li class="lim">2 cajas · 2.000 productos · 5 usuarios</li>
+          <li class="lim">2 cajas · 2.000 productos · 5 usuarios · 1 sucursal</li>
         </ul>
       </div>
-      <div class="plan">
+
+      <div class="plan pop">
+        <span class="pop-badge">Más Popular</span>
         <h3>Negocio</h3>
-        <p class="for">Para saber cuánto ganas por cada producto.</p>
+        <p class="for">Para comercios que buscan inteligencia financiera y control total.</p>
         <div class="price">2,5 UF <small>+ IVA / mes</small></div>
+        <span class="annual-badge">Anual: 1 Mes Gratis</span>
         <ul>
           <li>Todo lo de Comercio</li>
-          <li>Márgenes y costos FIFO</li>
-          <li>Alerta cuando sube el costo</li>
-          <li>Análisis de demanda y asistencia</li>
-          <li>Soporte con teléfono y 2 h de onboarding</li>
-          <li class="lim">4 cajas · 5.000 productos · 10 usuarios</li>
+          <li>Análisis de Márgenes FIFO</li>
+          <li>Historial de Costos + Alertas (+10%)</li>
+          <li>Valoración de Inventario real</li>
+          <li>Análisis de Demanda y Reposición</li>
+          <li>Asistencia de personal y comisiones</li>
+          <li>Soporte prioritario ticket/chat/teléfono</li>
+          <li>2 horas de onboarding asistido gratis</li>
+          <li class="lim">4 cajas · 5.000 productos · 10 usuarios · 2 sucursales</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <h3>Cadena</h3>
+        <p class="for">Para cadenas locales, redes de farmacias y distribuidoras.</p>
+        <div class="price">4,5 UF <small>+ IVA / mes</small></div>
+        <span class="annual-badge">Anual: 1 Mes Gratis</span>
+        <ul>
+          <li>Todo lo de Negocio</li>
+          <li>Hasta 5 sucursales (mismo RUT)</li>
+          <li>Gestión multisucursal consolidada</li>
+          <li>Soporte SLA garantizado</li>
+          <li>Gestor de cuenta TGT asignado</li>
+          <li>4 horas de onboarding asistido gratis</li>
+          <li>1 Add-on incluido a elección</li>
+          <li class="lim">10 cajas · SKU ilimitados · Usuarios ilimitados · 5 sucursales</li>
         </ul>
       </div>
     </div>
-    <p class="fine">¿Varias sucursales? Existe el plan Cadena, consúltanos. La facturación electrónica (DTE) y la puesta en marcha se cotizan según tu negocio.</p>
+
+   <!-- Bloque de Subsidio Sercotec / Corfo (Invitación) -->
+    <div class="sercotec-box">
+      <div>
+        <h3>¿Sabías que puedes postular a fondos para tratar de obtener financiamiento para tu negocio?</h3>
+        <p>Con esto podrías financiar tu inversión en tecnología. Te asesoramos y acompañamos en tu postulación a fondos de <strong>SERCOTEC o CORFO</strong> para aumentar considerablemente tus probabilidades de adjudicación.</p>
+      </div>
+      <a class="btn" style="background:#fff;color:var(--deep);border-color:#fff;white-space:nowrap" href="#contacto">Quiero asesoría</a>
+    </div>
+
+
   </div>
 </section>
 
 <section class="faq" id="preguntas">
   <div class="wrap">
     <h2>Preguntas frecuentes</h2>
-    <p class="sub">Si no encuentras la tuya, escríbenos y te respondemos.</p>
+    <p class="sub">Resolvemos tus dudas principales de forma directa.</p>
 
-    <details><summary>¿Cuánto cuesta OmniSalesPOS?</summary>
-      <p>Los planes parten en 0,8 UF + IVA al mes e incluyen ventas, stock y caja. La puesta en marcha en tu local y los equipos se cotizan según lo que necesites. <a href="#contacto">Pide tu cotización.</a></p></details>
+    <details><summary>¿Incluye boleta y factura electrónica ante el SII (DTE)?</summary>
+      <p>Sí. OmniSalesPOS integra la facturación electrónica oficial (boleta, factura, notas de crédito y débito) en todos sus planes desde el básico, permitiéndote cumplir con la normativa legal del SII sin pagos sorpresa.</p></details>
+
+    <details><summary>¿Por qué se paga la instalación por separado de la suscripción?</summary>
+      <p>Porque el software (OmniSalesPOS) es una plataforma tecnológica en la nube con cobro mensual, mientras que el <b>servicio de instalación</b> es el trabajo profesional humano operado por GSI360 (que incluye técnico en terreno, configuración de equipos, carga de productos y capacitación).</p></details>
+
+    <details><summary>¿Cómo funciona el servicio de postulación y asesoría para fondos de Sercotec o Corfo?</summary>
+      <p>Es un servicio de acompañamiento profesional donde evaluamos tu perfil, preparamos los antecedentes, cotizaciones formales y te guiamos en el proceso de postulación a fondos concursables (como Digitaliza tu Almacén, Ruta Digital, etc.) para aumentar considerablemente tus probabilidades de adjudicación y financiar tu tecnología.</p></details>
 
     <details><summary>¿Tengo que comprar un computador especial o instalar algo?</summary>
-      <p>No. Funciona desde el navegador, en computador, tablet o celular, sin instalar nada. Si necesitas computador, impresora, gaveta o lector, te ayudamos a conseguirlo y dejarlo todo conectado.</p></details>
+      <p>No. Es un sistema 100% web que funciona en el navegador de cualquier computador, tablet o teléfono celular. Si no tienes equipos, en GSI360 te proveemos la solución completa (pantalla, lector, impresora y gaveta).</p></details>
 
-    <details><summary>¿Funciona si se cae el internet?</summary>
-      <p>Sí. La caja tiene modo offline y sigues vendiendo con las funciones básicas. Algunas cosas, como clientes, crédito o terminales de pago, necesitan conexión. Cuando vuelve internet, todo se sincroniza.</p></details>
+    <details><summary>¿Funciona si se cae la conexión a internet?</summary>
+      <p>Sí. Cuenta con <b>modo offline nativo</b>. Si se interrumpe la conexión, puedes seguir cobrando y emitiendo tus ventas con normalidad. En cuanto regresa el internet, el sistema sincroniza todo automáticamente.</p></details>
 
-    <details><summary>¿Ofrecen soporte técnico en línea?</summary>
-      <p>Sí. Tienes soporte por ticket en horario hábil desde el plan Emprendedor, chat desde Comercio y teléfono en Negocio. Además, te acompañamos en la puesta en marcha.</p></details>
-
-    <details><summary>¿Puedo personalizar la configuración del POS?</summary>
-      <p>Sí. Configuramos tus productos y precios, los usuarios con sus permisos (quién puede anular, dar descuentos o retirar plata de caja), impuestos, impresión y la vista de venta que más te acomode. No hacemos desarrollos a medida.</p></details>
-
-    <details><summary>¿Cargan mis productos al sistema?</summary>
-      <p>Sí. Cargamos más de 100 productos por ti al comenzar, y el resto lo puedes importar desde un archivo Excel.</p></details>
-
-    <details><summary>¿Puedo ver mi negocio desde el celular?</summary>
-      <p>Sí. Como el sistema es web, ves las ventas del día y tu stock desde el teléfono, sin estar en el local.</p></details>
-
-    <details><summary>¿Incluye boleta electrónica?</summary>
-      <p>OmniSalesPOS se integra con la facturación electrónica del SII (DTE), pero es un producto aparte. Te cotizamos según tu negocio.</p></details>
+    <details><summary>¿Qué soporte técnico recibo al contratar?</summary>
+      <p>Recibes atención técnica por ticket desde el plan Emprendedor, atención por chat en el plan Comercio y atención telefónica prioritaria directa en el plan Negocio, además de nuestro acompañamiento local en la puesta en marcha.</p></details>
   </div>
 </section>
 
@@ -435,8 +565,8 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   <div class="wrap">
     <div class="side">
       <h2>Agenda tu demo gratis</h2>
-      <p>Te mostramos el sistema con tus propios productos, sin compromiso. Déjanos tus datos y te escribimos por WhatsApp.</p>
-      <p><b>¿Prefieres escribirnos por WhatsApp?</b></p>
+      <p>Te mostramos el sistema funcionando con tus propios productos, sin ningún compromiso. Déjanos tus datos y te contactamos por WhatsApp.</p>
+      <p><b>¿Prefieres escribirnos directamente?</b></p>
       <a class="btn ghost" id="wa-side" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
     </div>
 
@@ -472,7 +602,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         </div>
         <div class="form-group">
           <label for="nombre_negocio">Nombre de tu negocio</label>
-          <input type="text" id="nombre_negocio" name="nombre_negocio" placeholder="Ej. Panadería Antojitos">
+          <input type="text" id="nombre_negocio" name="nombre_negocio" placeholder="Ej. Minimarket Don Pepe">
         </div>
       </div>
 
@@ -480,44 +610,55 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         <div class="form-group">
           <label for="negocio">Tipo de negocio *</label>
           <select id="negocio" name="negocio" required>
-          <option value="">Elige una opción</option>
-          <option value="Almacén o minimarket">Almacén o minimarket</option>
-          <option value="Botillería">Botillería</option>
-          <option value="Ferretería">Ferretería</option>
-          <option value="Farmacia">Farmacia</option>
-          <option value="Tienda de ropa o calzado">Tienda de ropa o calzado</option>
-          <option value="Mascotas">Mascotas</option>
-          <option value="Otro">Otro</option>
+            <option value="">Elige una opción</option>
+            <option value="Almacén o minimarket">Almacén o minimarket</option>
+            <option value="Botillería">Botillería</option>
+            <option value="Ferretería">Ferretería</option>
+            <option value="Farmacia independiente">Farmacia independiente</option>
+            <option value="Tienda de ropa o calzado">Tienda de ropa o calzado</option>
+            <option value="Mascotas">Mascotas</option>
+            <option value="Distribuidora / Mayorista">Distribuidora / Mayorista</option>
+            <option value="Otro">Otro</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="desafio">¿Cuál es tu mayor desafío hoy? *</label>
+          <label for="desafio">¿Cuál es tu objetivo principal? *</label>
           <select id="desafio" name="desafio" required>
-          <option value="">Elige una opción</option>
-          <option value="Control de inventario y stock">Control de inventario y stock</option>
-          <option value="Rapidez en la atención y ventas">Rapidez en la atención y ventas</option>
-          <option value="Emisión de boletas/facturas (SII)">Emisión de boletas/facturas (SII)</option>
-          <option value="Tener reportes de ganancias reales">Tener reportes de ganancias reales</option>
-          <option value="Vender por internet / canal digital">Vender por internet / canal digital</option>
+            <option value="">Elige una opción</option>
+            <option value="Emitir boletas/facturas SII y cuadrar caja">Emitir boletas/facturas SII y cuadrar caja</option>
+            <option value="Control de inventario y reposición de stock">Control de inventario y reposición de stock</option>
+            <option value="Conocer márgenes reales y ganancias por producto">Conocer márgenes reales y ganancias por producto</option>
+            <option value="Postular a Fondos Sercotec o Corfo">Postular a fondos de Sercotec o Corfo con asesoría experta</option>
+            <option value="Equipar el mesón completo">Equipar el mesón completo (PC + Lector + Impresora)</option>
           </select>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="equipos">¿Qué equipos tienes hoy en tu local? *</label>
+        <label for="servicio_extra">¿Te interesa el servicio de asesoría y postulación a fondos (Sercotec / Corfo)? *</label>
+        <select id="servicio_extra" name="servicio_extra" required>
+          <option value="">Elige una opción</option>
+          <option value="Sí, quiero asesoría y postulación a fondos">Sí, necesito asesoría y gestión para postular a Sercotec o Corfo</option>
+          <option value="No, solo contratación de sistema y puesta en marcha">No, solo me interesa contratar el software y la puesta en marcha</option>
+          <option value="Quiero evaluarlo en la demo">Quiero evaluarlo en la demo</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="equipos">¿Qué equipamiento tienes en tu local? *</label>
         <select id="equipos" name="equipos" required>
           <option value="">Elige una opción</option>
           <option value="Computador o notebook">Computador o notebook</option>
           <option value="Tablet">Tablet</option>
           <option value="Solo mi celular">Solo mi celular</option>
           <option value="Impresora, gaveta o lector">Impresora, gaveta o lector</option>
-          <option value="Nada todavía">Nada todavía</option>
+          <option value="Necesito equipamiento completo">Necesito equipamiento completo</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="mensaje">¿Algo más que quieras contarnos? (opcional)</label>
-        <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej. Necesito balanza digital conectada..."></textarea>
+        <label for="mensaje">¿Algo más que desees consultar? (opcional)</label>
+        <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej. Necesito balanza electrónica conectada..."></textarea>
       </div>
 
       <button type="submit" id="send" class="btn">Quiero mi demo gratis</button>
@@ -537,7 +678,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       </a>
       <div class="footer-copy">
         <strong>OmniSalesPOS® es un producto de la suite TGT ONE.</strong>
-        <span>Implementación, soporte y capacitación operado por <b>GSI360</b>.</span>
+        <span>Implementación, soporte y capacitación local operado por <b>GSI360</b>.</span>
       </div>
     </div>
     <a class="footer-contact" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">WhatsApp</a>
@@ -547,9 +688,9 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
 <a class="wa-float" id="wa-float" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">WhatsApp</a>
 
 <script>
-/* ====== CONFIGURA AQUÍ ====== */
-var PIXEL_ID = '';        // ID del píxel de Meta de GSI360 (ej. '123456789012345')
-var WEBHOOK_URL = 'https://flow.zoho.com/946318302/flow/webhook/incoming?zapikey=1001.c7389b8b3e1bf996c9d6cabfd4453c7d.9d46800b2432397ab8f20ed1cee0858b&isdebug=false';     // Endpoint de Zoho configurado
+/* ====== CONFIGURACIÓN ====== */
+var PIXEL_ID = ''; 
+var WEBHOOK_URL = 'https://flow.zoho.com/946318302/flow/webhook/incoming?zapikey=1001.c7389b8b3e1bf996c9d6cabfd4453c7d.9d46800b2432397ab8f20ed1cee0858b&isdebug=false'; 
 var WA_NUMBER = '56998923562';
 /* ============================ */
 
@@ -573,7 +714,7 @@ var btn = document.getElementById('send');
 
 form.addEventListener('submit', function(e){
   e.preventDefault();
-  if (form.elements.web.value) return; /* trampa anti-spam */
+  if (form.elements.web.value) return; 
   if (!form.checkValidity()) { form.reportValidity(); return; }
 
   var d = {
@@ -587,6 +728,7 @@ form.addEventListener('submit', function(e){
     nombre_negocio: form.nombre_negocio.value.trim(),
     negocio: form.negocio.value,
     desafio: form.desafio.value,
+    servicio_extra: form.servicio_extra.value,
     equipos: form.equipos.value,
     mensaje: form.mensaje.value.trim(),
     origen: origen,
@@ -601,7 +743,8 @@ form.addEventListener('submit', function(e){
     'Correo: ' + (d.email || 'No indicado'),
     'Comuna: ' + d.comuna,
     'Negocio: ' + negocioTxt,
-    'Desafío: ' + d.desafio,
+    'Objetivo: ' + d.desafio,
+    'Interés Fondos (Sercotec/Corfo): ' + d.servicio_extra,
     'Equipos: ' + d.equipos,
     'Mensaje: ' + (d.mensaje || 'Sin comentarios')
   ].join('\n');
@@ -610,21 +753,20 @@ form.addEventListener('submit', function(e){
 
   var done = function(){
     track('Lead');
-    msg.innerHTML = '<strong>¡Listo, ' + d.nombre + '!</strong> Recibimos tus datos y te escribimos pronto por WhatsApp. Si quieres adelantar, escríbenos ahora:<br><br><a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Continuar por WhatsApp</a>';
+    msg.innerHTML = '<strong>¡Listo, ' + d.nombre + '!</strong> Recibimos tus datos y te contactaremos a la brevedad por WhatsApp. Si deseas acelerar, escríbenos ahora:<br><br><a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Continuar por WhatsApp</a>';
     msg.className = 'ok';
     Array.prototype.forEach.call(form.children, function(c){ if (c !== msg) c.style.display = 'none'; });
     form.style.display = 'block';
   };
 
   if (!WEBHOOK_URL) {
-    msg.innerHTML = '<strong>Tu solicitud está lista, ' + d.nombre + '.</strong> Para recibirla, envíala por WhatsApp. El envío automático del formulario no está disponible por ahora.<br><br><a class="btn" id="wa-form" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Enviar solicitud por WhatsApp</a>';
+    msg.innerHTML = '<strong>Tu solicitud está lista, ' + d.nombre + '.</strong> Para recibir atención inmediata, envíala directamente a nuestro WhatsApp:<br><br><a class="btn" id="wa-form" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Enviar por WhatsApp</a>';
     msg.className = 'ok';
     document.getElementById('wa-form').addEventListener('click', function(){ track('Contact'); });
     Array.prototype.forEach.call(form.children, function(c){ if (c !== msg) c.style.display = 'none'; });
     return;
   }
 
-  /* Envío a Zoho Flow mediante Form data */
   fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(d) })
     .then(done)
     .catch(function(){

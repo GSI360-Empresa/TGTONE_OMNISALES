@@ -24,14 +24,16 @@ a{color:inherit}
 .btn[disabled]{opacity:.6;cursor:wait}
 
 header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;padding-top:8px;padding-bottom:8px;gap:16px}
 .brands{display:flex;align-items:center;gap:14px}
 .logo{display:block;line-height:0}
 .logo img,.brands .gsi{display:block;height:44px;width:auto}
 .brands .sep{width:1px;height:32px;background:var(--line)}
+.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .badge{display:inline-flex;align-items:center;gap:16px;background:#fff;color:var(--ink);border-radius:12px;padding:10px 20px 10px 14px;margin-bottom:26px;font:600 16px/1.3 'Instrument Sans',sans-serif}
 .badge img{height:56px;width:auto;display:block}
 header .btn{padding:11px 18px;font-size:15px}
+header .btn.nav-kit{padding:10px 16px;font-size:14.5px}
 
 .hero{padding:64px 0 72px;background:linear-gradient(180deg,var(--bg),#fff)}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
@@ -104,21 +106,6 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:20em}
 .setup-card li{padding:4px 0 4px 20px;position:relative}
 .setup-card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
 
-/* Caja de Letra Chica Profesional */
-.setup-note {
-  margin-top: auto;
-  padding: 12px 14px;
-  background: #f4f6f4;
-  border: 1px solid #d9e5dc;
-  border-radius: 8px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: #55665d;
-}
-.setup-note p + p {
-  margin-top: 6px;
-}
-
 /* Estilos de Planes de Suscripción de Software (Segundo) */
 .plans{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
 .plan{padding:26px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;position:relative}
@@ -141,6 +128,16 @@ section h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;max-width:20em}
 .sercotec-box h3{font-size:22px;color:#fff;margin-bottom:4px}
 .sercotec-box p{color:#d1e8da;font-size:15.5px}
 
+/* Banner Cotizador de Equipos POS (kitequipos.gsi360.cl) */
+.kit-box{margin-top:24px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;box-shadow:0 10px 28px rgba(13,58,42,.06)}
+.kit-box-main{display:flex;align-items:flex-start;gap:18px;max-width:640px}
+.kit-icon{width:52px;height:52px;border-radius:12px;background:#fff0c2;color:#705000;display:grid;place-items:center;flex-shrink:0}
+.kit-tag{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--green);background:#e6f4ea;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.kit-box h3{font-size:22px;color:var(--deep);margin-bottom:6px}
+.kit-box p{color:var(--mut);font-size:15.5px;line-height:1.5}
+.btn.amber{background:var(--amber);border-color:var(--amber);color:#3a2800;white-space:nowrap}
+.btn.amber:hover{background:#e3a512;border-color:#e3a512}
+
 .faq{background:var(--bg)}
 details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
 summary{cursor:pointer;list-style:none;padding:18px 54px 18px 20px;font:600 17.5px 'Instrument Sans',sans-serif;position:relative}
@@ -160,6 +157,10 @@ label{font-weight:600;font-size:15px}
 input,select,textarea{font:inherit;padding:13px 14px;border:1.5px solid #b9c9bf;border-radius:8px;background:#fff;color:var(--ink);width:100%}
 input:focus,select:focus,textarea:focus{border-color:var(--green);outline:3px solid #cfe8d8}
 textarea{min-height:84px;resize:vertical}
+.kit-helper{display:none;margin-top:4px;padding:10px 14px;background:#fdfcf7;border:1.5px solid var(--amber);border-radius:8px;font-size:14px;color:var(--ink)}
+.kit-helper.show{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.kit-helper a{color:var(--green);font-weight:700;text-decoration:none}
+.kit-helper a:hover{text-decoration:underline}
 .hp{position:absolute;left:-9999px;height:0;overflow:hidden}
 #msg{grid-column:1/-1;display:none;padding:20px;border-radius:10px;background:#eaf5ee}
 #msg.ok{display:block}
@@ -213,6 +214,8 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
   .notebook{font-size:21px}
   .brands .gsi,.brands .sep{display:none}
   .logo img{height:38px}
+  header .btn.nav-kit{padding:9px 12px;font-size:13.5px}
+  header .btn{padding:9px 14px;font-size:14px}
   .badge{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -227,7 +230,10 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <span class="sep" aria-hidden="true"></span>
       <img class="gsi" src="img/logo-gsi360.png" width="57" height="44" alt="GSI360">
     </div>
-    <a class="btn" href="#contacto">Agenda tu demo</a>
+    <div class="header-actions">
+      <a class="btn ghost nav-kit" href="https://kitequipos.gsi360.cl/" target="_blank" rel="noopener">Cotizar Equipos POS</a>
+      <a class="btn" href="#contacto">Agenda tu demo</a>
+    </div>
   </div>
 </header>
 
@@ -246,7 +252,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
         <li>Demo sin compromiso en tu local</li>
         <li>Con tus propios productos</li>
       </ul>
-      <p class="note">Instalación desde 1,5 UF. <a href="#planes">Ver servicios y planes</a></p>
+      <p class="note">Instalación desde 1,5 UF. <a href="#planes">Ver servicios y planes</a> · <a href="https://kitequipos.gsi360.cl/" target="_blank" rel="noopener">Cotizar kit de equipos</a></p>
     </div>
     <div class="duo" aria-hidden="true">
       <div class="notebook">
@@ -395,7 +401,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <img class="service-image" src="img/omnisales y gsi360.png" width="670" height="435" alt="Equipo de GSI360 muestra el sistema OmniSalesPOS en un minimarket" loading="lazy">
       <div class="svc">
         <div><strong>Carga inicial de catálogo</strong><span>Cargamos tus primeros productos iniciales y te ayudamos y enseñamos cómo migrar el resto de tu inventario de forma simple.</span></div>
-        <div><strong>Capacitación en tu local</strong><span>Acompañamiento presencial, trabajando directamente con tus propios productos y tu forma habitual de operar *(sujeto a factibilidad en tu zona)*.</span></div>
+        <div><strong>Capacitación en tu local</strong><span>Acompañamiento presencial, trabajando directamente con tus propios productos y tu forma habitual de operar <em>(sujeto a factibilidad en tu zona)</em>.</span></div>
         <div><strong>Compatibilidad de hardware</strong><span>Conectamos tu computador, tablet, impresora térmica, báscula o lector de códigos de barra sin enredos.</span></div>
         <div><strong>Soporte local continuo</strong><span>Atención por ticket desde el plan Emprendedor, sumando canales de chat y teléfono prioritario en planes superiores.</span></div>
       </div>
@@ -409,7 +415,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
     <h2>Inversión transparente para tu negocio</h2>
     <p class="sub">Conoce los costos de instalación inicial (pago único por servicio local GSI360) y los planes de suscripción mensual del sistema (OmniSalesPOS).</p>
     
- <!-- PASO 1: SERVICIO DE INSTALACIÓN (PRIMERO) -->
+    <!-- PASO 1: SERVICIO DE INSTALACIÓN (PRIMERO) -->
     <h3 style="font-size:24px; margin-bottom:8px; color:var(--deep)">1. Servicio de Instalación y Puesta en Marcha <span style="font-size:16px; font-weight:500; color:var(--mut)">(Se paga por única vez)</span></h3>
     <p style="color:var(--mut); font-size:15.5px; margin-bottom:24px">Elige el nivel de acompañamiento técnico y presencial que necesitas para dejar tu local operando desde el día uno:</p>
     
@@ -446,9 +452,8 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <p>* <strong>Presencialidad sujeta a factibilidad técnica y geográfica</strong> (RM, Valparaíso y Concepción). Si no es factible la visita, la instalación y capacitación se realizan con <strong>asesoría remota guiada paso a paso</strong> para cualquiera de los servicios.</p>
       <p>* Los valores y servicios aplican a <strong>1 sucursal</strong> (sucursales adicionales se cotizan por separado y de forma conversable).</p>
       <p>* Los kits para inventario total o catálogos masivos están sujetos a evaluación previa según el tamaño del catálogo.</p>
-    </div>	
-	
-	
+    </div>
+
     <!-- PASO 2: PLANES DE SUSCRIPCIÓN DE SOFTWARE (SEGUNDO) -->
     <h3 style="font-size:24px; margin-top:40px; margin-bottom:8px; color:var(--deep)">2. Planes de Suscripción del Software <span style="font-size:16px; font-weight:500; color:var(--mut)">(Mensual o Anual)</span></h3>
     <p style="color:var(--mut); font-size:15.5px; margin-bottom:24px">Elige el plan de OmniSalesPOS según el tamaño de tu operación (con facturación electrónica DTE incluida desde el plan base):</p>
@@ -523,7 +528,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       </div>
     </div>
 
-   <!-- Bloque de Subsidio Sercotec / Corfo (Invitación) -->
+    <!-- Bloque de Subsidio Sercotec / Corfo (Invitación) -->
     <div class="sercotec-box">
       <div>
         <h3>¿Sabías que puedes postular a fondos para tratar de obtener financiamiento para tu negocio?</h3>
@@ -532,6 +537,27 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <a class="btn" style="background:#fff;color:var(--deep);border-color:#fff;white-space:nowrap" href="#contacto">Quiero asesoría</a>
     </div>
 
+    <!-- Banner Cotizador de Equipos POS (kitequipos.gsi360.cl) -->
+    <div class="kit-box">
+      <div class="kit-box-main">
+        <div class="kit-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <div>
+          <span class="kit-tag">Hardware Certificado</span>
+          <h3>¿Necesitas equipar tu mesón desde cero?</h3>
+          <p>Arma tu kit a medida con pantallas táctiles, lectores de código de barras, impresoras térmicas, gavetas de dinero y balanzas 100% compatibles con OmniSalesPOS.</p>
+        </div>
+      </div>
+      <a class="btn amber" href="https://kitequipos.gsi360.cl/" target="_blank" rel="noopener">
+        Cotizar Kit de Equipos
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+    </div>
 
   </div>
 </section>
@@ -551,7 +577,7 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <p>Es un servicio de acompañamiento profesional donde evaluamos tu perfil, preparamos los antecedentes, cotizaciones formales y te guiamos en el proceso de postulación a fondos concursables (como Digitaliza tu Almacén, Ruta Digital, etc.) para aumentar considerablemente tus probabilidades de adjudicación y financiar tu tecnología.</p></details>
 
     <details><summary>¿Tengo que comprar un computador especial o instalar algo?</summary>
-      <p>No. Es un sistema 100% web que funciona en el navegador de cualquier computador, tablet o teléfono celular. Si no tienes equipos, en GSI360 te proveemos la solución completa (pantalla, lector, impresora y gaveta).</p></details>
+      <p>No. Es un sistema 100% web que funciona en el navegador de cualquier computador, tablet o teléfono celular. Si no tienes equipos, en GSI360 <a href="https://kitequipos.gsi360.cl/" target="_blank" rel="noopener">te proveemos la solución completa</a> (pantalla, lector, impresora y gaveta).</p></details>
 
     <details><summary>¿Funciona si se cae la conexión a internet?</summary>
       <p>Sí. Cuenta con <b>modo offline nativo</b>. Si se interrumpe la conexión, puedes seguir cobrando y emitiendo tus ventas con normalidad. En cuanto regresa el internet, el sistema sincroniza todo automáticamente.</p></details>
@@ -567,7 +593,10 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
       <h2>Agenda tu demo gratis</h2>
       <p>Te mostramos el sistema funcionando con tus propios productos, sin ningún compromiso. Déjanos tus datos y te contactamos por WhatsApp.</p>
       <p><b>¿Prefieres escribirnos directamente?</b></p>
-      <a class="btn ghost" id="wa-side" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:12px;">
+        <a class="btn ghost" id="wa-side" href="https://wa.me/56998923562?text=Hola%2C%20quiero%20una%20demo%20de%20OmniSalesPOS" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        <a class="btn amber" href="https://kitequipos.gsi360.cl/" target="_blank" rel="noopener">Cotizar Kit de Equipos POS</a>
+      </div>
     </div>
 
     <form id="lead" novalidate>
@@ -654,6 +683,10 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
           <option value="Impresora, gaveta o lector">Impresora, gaveta o lector</option>
           <option value="Necesito equipamiento completo">Necesito equipamiento completo</option>
         </select>
+        <div class="kit-helper" id="kit-helper">
+          <span>¿Quieres armar tu cotización de equipos ahora mismo?</span>
+          <a href="https://kitequipos.gsi360.cl/" target="_blank" rel="noopener">Ir al cotizador de equipos →</a>
+        </div>
       </div>
 
       <div class="form-group">
@@ -704,6 +737,18 @@ function track(ev){ try { if (window.fbq) fbq('track', ev); } catch(e){} }
   var el = document.getElementById(id);
   if (el) el.addEventListener('click', function(){ track('Contact'); });
 });
+
+var equiposSelect = document.getElementById('equipos');
+var kitHelper = document.getElementById('kit-helper');
+if (equiposSelect && kitHelper) {
+  equiposSelect.addEventListener('change', function(){
+    if (this.value === 'Necesito equipamiento completo' || this.value === 'Solo mi celular') {
+      kitHelper.classList.add('show');
+    } else {
+      kitHelper.classList.remove('show');
+    }
+  });
+}
 
 var q = new URLSearchParams(location.search);
 var origen = ['utm_source','utm_medium','utm_campaign','utm_content'].map(function(k){ return q.get(k) ? k + '=' + q.get(k) : ''; }).filter(Boolean).join(' | ') || 'directo';
