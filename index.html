@@ -226,7 +226,8 @@ footer .footer-wrap{display:flex;align-items:center;justify-content:space-betwee
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=[];t=b.createElement(e);t.async=!0;
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
@@ -617,7 +618,7 @@ src="https://www.facebook.com/tr?id=2059038324896507&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <form id="lead" novalidate>
+    <form id="lead" novalidate onsubmit="return false;">
       <input type="hidden" name="tipo_contacto" value="Solicitud de demo">
       <div class="hp" aria-hidden="true"><input type="text" name="web" tabindex="-1" autocomplete="off"></div>
       <div class="form-row">
@@ -740,15 +741,10 @@ src="https://www.facebook.com/tr?id=2059038324896507&ev=PageView&noscript=1"
 
 <script>
 /* ====== CONFIGURACIÓN ====== */
-var PIXEL_ID = '2059038324896507'; 
 var WEBHOOK_URL = 'https://flow.zoho.com/946318302/flow/webhook/incoming?zapikey=1001.c7389b8b3e1bf996c9d6cabfd4453c7d.9d46800b2432397ab8f20ed1cee0858b&isdebug=false'; 
 var WA_NUMBER = '56998923562';
 /* ============================ */
 
-if (PIXEL_ID) {
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', PIXEL_ID); fbq('track', 'PageView');
-}
 function track(ev){ try { if (window.fbq) fbq('track', ev); } catch(e){} }
 
 ['wa-hero','wa-side','wa-float'].forEach(function(id){
@@ -783,17 +779,17 @@ form.addEventListener('submit', function(e){
   var d = {
     tipo_contacto: form.elements.tipo_contacto.value,
     fecha: new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' }),
-    nombre: form.nombre.value.trim(),
-    apellido: form.apellido.value.trim(),
-    whatsapp: form.whatsapp.value.trim(),
-    email: form.email.value.trim(),
-    comuna: form.comuna.value.trim(),
-    nombre_negocio: form.nombre_negocio.value.trim(),
-    negocio: form.negocio.value,
-    desafio: form.desafio.value,
-    servicio_extra: form.servicio_extra.value,
-    equipos: form.equipos.value,
-    mensaje: form.mensaje.value.trim(),
+    nombre: form.elements.nombre.value.trim(),
+    apellido: form.elements.apellido.value.trim(),
+    whatsapp: form.elements.whatsapp.value.trim(),
+    email: form.elements.email.value.trim(),
+    comuna: form.elements.comuna.value.trim(),
+    nombre_negocio: form.elements.nombre_negocio.value.trim(),
+    negocio: form.elements.negocio.value,
+    desafio: form.elements.desafio.value,
+    servicio_extra: form.elements.servicio_extra.value,
+    equipos: form.elements.equipos.value,
+    mensaje: form.elements.mensaje.value.trim(),
     origen: origen,
     pagina: location.hostname
   };
@@ -830,13 +826,14 @@ form.addEventListener('submit', function(e){
     return;
   }
 
+  var fail = function(){
+    btn.disabled = false; btn.textContent = 'Quiero mi demo gratis';
+    msg.innerHTML = 'No pudimos enviar tus datos. Intenta de nuevo o envíalos directo por WhatsApp:<br><br><a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto) + '">Enviar por WhatsApp</a>';
+    msg.className = 'ok';
+  };
+
   fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(d) })
-    .then(done)
-    .catch(function(){
-      btn.disabled = false; btn.textContent = 'Quiero mi demo gratis';
-      msg.textContent = 'No pudimos enviar tus datos. Intenta de nuevo o escríbenos por WhatsApp.';
-      msg.className = 'ok';
-    });
+    .then(done, fail);
 });
 </script>
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"69315be9b8852f0344cd8820c94d06ad"})});</script>
